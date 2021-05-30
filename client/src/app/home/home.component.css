@@ -1,0 +1,23 @@
+
+.container{
+    margin: 20px ;
+    text-align: center; 
+    align-items: center;
+    padding: 100px;
+}
+
+
+.routes{
+    
+    padding: 20px;
+    align-items: center;
+    text-align: center;
+}
+
+button{
+    margin: 2px;
+}
+
+body{
+   background-image:url();
+}

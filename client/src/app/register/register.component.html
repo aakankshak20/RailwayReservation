@@ -1,0 +1,36 @@
+<div class="container-fluid">
+    <h2>Registration Form</h2>
+    <form #userForm="ngForm">
+
+        <div class="form-group">
+            <label>Name</label>
+            <input type="text" #name="ngModel" [class.is-invalid]="name.invalid" class="form-control" name="name" [(ngModel)]="passengerModel.name">
+        </div>
+
+        <div class="form-group">
+            <label>Age</label>
+            <input type="number" #age class="form-control" name="age" [(ngModel)]="passengerModel.age">
+        </div>
+        <div class="form-group">
+            <label>Gender</label>
+            <input type="text" #gender class="form-control" name="gender" [(ngModel)]="passengerModel.gender">
+        </div>
+        <div class="form-group">
+            <label>Email</label>
+            <input type="email" required #email class="form-control" name="email" [(ngModel)]="passengerModel.email">
+        </div>
+        <div class="form-group">
+            <label>Password</label>
+            <input type="password" class="form-control" [(ngModel)]="passengerModel.password">
+        </div>
+        <div class="form-group">
+            <label>Confirm Password</label>
+            <input type="password" class="form-control">
+        </div>
+        <div class="form-group">
+            <label>Address</label>
+            <textarea #address rows="4" cols="10" class="form-control" name="address" [(ngModel)]="passengerModel.address"></textarea>
+        </div>
+        <button class="btn btn-primary" type="submit">Register</button>
+    </form>
+</div>
