@@ -9,5 +9,5 @@ import { Passenger } from './passenger';
 export class AppComponent {
   title = 'client';
  
-  passengerModel = new Passenger(' ', 0 ,' ',' ',' ',' ');
+  // passengerModel = new Passenger(' ', 0 ,' ',' ',' ',' ');
 }

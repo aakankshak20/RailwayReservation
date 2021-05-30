@@ -16,3 +16,7 @@
     padding: 15px;
     margin: auto;
   }
+  .card{
+    align-items: center;
+    left:400px
+  }
