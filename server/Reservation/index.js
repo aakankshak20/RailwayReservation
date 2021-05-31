@@ -11,6 +11,28 @@ mongoose.connect('mongodb+srv://aakanksha:aakanksha1@cluster0.80ol3.mongodb.net/
 
 const reservation= require('./routes/reservation')
 const app=express();
+const swaggerJSDoc = require('swagger-jsdoc');
+
+const swaggerDefinition = {
+  openapi: '3.0.0',
+  info: {
+    title: 'Express API for RailwayReservation-Train',
+    version: '1.0.0',
+  },
+};
+
+const options = {
+  swaggerDefinition,
+  // Paths to files containing OpenAPI definitions
+  apis: ['./routes/*.js'],
+};
+
+const swaggerSpec = swaggerJSDoc(options);
+
+const swaggerUi = require('swagger-ui-express');
+
+app.use('/docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
+
 
 app.use(express.json());
 app.use(reservation);

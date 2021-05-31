@@ -12,6 +12,8 @@
   "dependencies": {
     "axios": "^0.21.1",
     "express": "^4.17.1",
-    "mongoose": "^5.12.11"
+    "mongoose": "^5.12.11",
+    "swagger-jsdoc": "^5.0.1",
+    "swagger-ui-express": "^4.1.6"
   }
 }

@@ -11,6 +11,24 @@ const passenger=require('./routes/passenger')
 
 const app=express();
 app.use(express.json());
+const swaggerUi=require('swagger-ui-express');
+// const swaggerDocument=require('./swagger.json');
+const swaggerJSDoc = require('swagger-jsdoc');
+const swaggerDefinition={
+    openapi:'3.0.0',
+    info:{
+        title:'Express API ',
+        version:'1.0.0',
+    },
+};
+
+const options={
+    swaggerDefinition,
+    apis:['./routes/*.js'],
+};
+
+const swaggerSpec = swaggerJSDoc(options);
+app.use('/docs',swaggerUi.serve,swaggerUi.setup(swaggerSpec));
 
 app.use(passenger);
 // app.use(register);
