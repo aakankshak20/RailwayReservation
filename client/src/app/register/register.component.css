@@ -8,5 +8,42 @@ input.ng-invalid.ng-touched, select.ng-invalid {
 
 .card{
     align-items: center;
-    left:400px
+    left:400px;
+    border-radius: 40px;
 }
+
+.bg-primary {
+    background-color: rgba(0, 0, 0, 0.801)!important;
+}
+.card-header{
+    color:black;
+    background-color: white;
+    border-radius: 32px;
+}
+/* html { background-color: black; } */
+.submit{
+padding-left: 50px;
+}
+
+
+* {
+    box-sizing: border-box;
+  }
+  
+  /* Create two equal columns that floats next to each other */
+  .column {
+    float: left;
+    width: 25%;
+    padding: 10px;
+    height: 300px; /* Should be removed. Only for demonstration */
+  }
+  
+  /* .column info{
+      left: 800px;
+  } */
+  /* Clear floats after the columns */
+  .row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }

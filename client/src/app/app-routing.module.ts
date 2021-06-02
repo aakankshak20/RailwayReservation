@@ -1,3 +1,4 @@
+// import { createComponent } from '@angular/compiler/src/core';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
@@ -7,14 +8,37 @@ import { RegisterComponent } from './register/register.component';
 import { ReservationComponent } from './reservation/reservation.component';
 import { SearchTrainComponent } from './search-train/search-train.component';
 
+// import { LoginComponent } from './components/login/login.component';
+// import { CreateComponent } from './components/create/create.component';
+// import { HomeComponent } from './components/home/home.component';
+
+
+// import { AuthGuard } from './guard/auth.guard';
+
 const routes: Routes = [
   { path:'',redirectTo:'/home',pathMatch:'full'},
-  {path:'home',component:HomeComponent},
+  
+// {
+//   path: '',
+//   canActivate: [ AuthGuard ],
+//   component: HomeComponent
+// },
+  // {path:'home',component:HomeComponent},
   {path:'register',component:RegisterComponent},
+  {path:'home',component:HomeComponent},
   {path:'login', component:LoginComponent},
+  // {
+  //   path: 'sign-up',
+  //   component: CreateComponent
+  // },
+  // {
+  //   path: '',
+  //   component: HomeComponent
+  // },
   {path:'searchTrain',component:SearchTrainComponent},
   {path:'reservation',component:ReservationComponent},
   {path:"**", component:PagenotfoundComponent}
+
 ];
 
 @NgModule({
@@ -25,4 +49,5 @@ export class AppRoutingModule { }
 export const routingComponents=[
                 RegisterComponent,LoginComponent,SearchTrainComponent,
                 PagenotfoundComponent,HomeComponent,ReservationComponent
+               
 ]
