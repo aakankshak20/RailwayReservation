@@ -197,13 +197,10 @@ const val=9;
                 
                 Reservation.findOneAndUpdate({_id:reser._id},reserfinal).then(function(){
                     Reservation.findOne({_id:reser._id}).then(function(reservation){
-                        res.status(201).send({
-                            message:"Please keep a note of reservation id in order to have future operations",
-                            
-                            reserfinal,
+                        res.status(201).send(
                             reservation
                             
-                        });
+                        );
                     });
                 })
                 //res.send({reserfinal,reservation});
@@ -214,6 +211,63 @@ const val=9;
         }
     })
 });
+
+//for by source-destination reservation
+router.post('/reservationsd', async function(req,res){
+
+    const reservation = new Reservation({
+        Reservation_Date:req.body.Reservation_Date,
+        Source:req.body.Source,
+        Destination:req.body.Destination,
+        Fare:500,
+        Book:true,
+        Passenger:req.body.Passenger,
+        Class:req.body.Class
+       });
+
+
+       var reserfinal; 
+
+   await reservation.save();
+   await Reservation.findById({_id:reservation._id}).then((reser)=>{
+    //console.log(reser)
+        if(reser){
+            // console.log(reser)
+        axios.get("http://localhost:2000/trainsd/"+ reser.Source+"/"+reser.Destination)
+            .then((response)=>{
+                // console.log(response.data)
+                 reserfinal={
+                    id: reser._id,
+                    Fare: response.data[0].Fair*reservation.Passenger,
+                    Passenger: response.data[0].Passenger,
+                    Source: response.data[0].Source,
+                    Destination: response.data[0].Destination,
+
+                };
+                // console.log(reserfinal);
+                // reser.Fare=reserfinal.Fair;
+                
+                Reservation.findOneAndUpdate({_id:reser._id},reserfinal).then(function(){
+                    Reservation.findOne({_id:reser._id}).then(function(reservation){
+                        res.status(201).send(
+                           
+                            reservation
+                            
+                        );
+                    });
+                })
+                //res.send({reserfinal,reservation});
+                // console.log(reser._id)
+            });
+        }else{
+            res.send("check train schedule");
+        }
+    })
+});
+
+// })
+
+
 
 //for getting all reservations
 

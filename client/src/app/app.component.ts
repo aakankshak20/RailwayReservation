@@ -17,8 +17,5 @@ export class AppComponent {
 ngOnInit() {
     // this.getProtectedData();
 }
-logout() {
-  localStorage.removeItem('Token');
-  this.router.navigate([ '/login' ]);
-}
+
 }

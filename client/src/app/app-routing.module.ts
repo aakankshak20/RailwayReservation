@@ -7,36 +7,38 @@ import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 import { RegisterComponent } from './register/register.component';
 import { ReservationComponent } from './reservation/reservation.component';
 import { SearchTrainComponent } from './search-train/search-train.component';
-
-// import { LoginComponent } from './components/login/login.component';
-// import { CreateComponent } from './components/create/create.component';
-// import { HomeComponent } from './components/home/home.component';
-
-
-// import { AuthGuard } from './guard/auth.guard';
+import { DeatailsComponent } from './reservation/deatails/deatails.component';
+import { HelpComponent } from './help/help.component';
+import { UpdatereservationComponent } from './reservation/updatereservation/updatereservation.component';
+import { SourceDestReserComponent } from './reservation/source-dest-reser/source-dest-reser.component';
+import { CancelreservationComponent } from './reservation/cancelreservation/cancelreservation.component';
+import { AdminloginComponent } from './Admin/adminlogin/adminlogin.component';
+import { AdminregisterComponent } from './Admin/adminregister/adminregister.component';
+import { TrainchangesComponent } from './Admin/trainchanges/trainchanges.component';
+import { TrainsearchComponent } from './Admin/trainsearch/trainsearch.component';
+import { DeleteTrainComponent } from './Admin/delete-train/delete-train.component';
+import { UpdateTrainComponent } from './Admin/update-train/update-train.component';
+import { AddTrainComponent } from './Admin/add-train/add-train.component';
 
 const routes: Routes = [
-  { path:'',redirectTo:'/home',pathMatch:'full'},
-  
-// {
-//   path: '',
-//   canActivate: [ AuthGuard ],
-//   component: HomeComponent
-// },
-  // {path:'home',component:HomeComponent},
+  {path:'',redirectTo:'/home',pathMatch:'full'},
   {path:'register',component:RegisterComponent},
   {path:'home',component:HomeComponent},
   {path:'login', component:LoginComponent},
-  // {
-  //   path: 'sign-up',
-  //   component: CreateComponent
-  // },
-  // {
-  //   path: '',
-  //   component: HomeComponent
-  // },
   {path:'searchTrain',component:SearchTrainComponent},
   {path:'reservation',component:ReservationComponent},
+  {path:'details',component:DeatailsComponent},
+  {path:'help',component:HelpComponent},
+  {path:'updatereservation',component:UpdatereservationComponent},
+  {path:'source-dest-reser',component:SourceDestReserComponent},
+  {path:'cancelreservation',component:CancelreservationComponent},
+  {path:'alogin',component:AdminloginComponent},
+  {path:'aregister',component:AdminregisterComponent},
+  {path:'trainchanges',component:TrainchangesComponent},
+  {path:'SearchTrains',component:TrainsearchComponent},
+  {path:'DeleteTrain',component:DeleteTrainComponent},
+  {path:'UpdateTrain',component:UpdateTrainComponent},
+  {path:'AddTrain',component:AddTrainComponent},
   {path:"**", component:PagenotfoundComponent}
 
 ];
@@ -47,7 +49,11 @@ const routes: Routes = [
 })
 export class AppRoutingModule { }
 export const routingComponents=[
-                RegisterComponent,LoginComponent,SearchTrainComponent,
-                PagenotfoundComponent,HomeComponent,ReservationComponent
+                RegisterComponent,LoginComponent,SearchTrainComponent,DeatailsComponent,
+                PagenotfoundComponent,HomeComponent,ReservationComponent,HelpComponent,
+                CancelreservationComponent,UpdatereservationComponent,SourceDestReserComponent,
+                AdminregisterComponent,AdminloginComponent,TrainchangesComponent,AddTrainComponent,
+                DeleteTrainComponent,UpdateTrainComponent,TrainsearchComponent
+
                
 ]

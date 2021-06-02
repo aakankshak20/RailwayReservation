@@ -5,7 +5,7 @@
         
         <form #reservation='ngForm' (ngSubmit)='onSubmit(reservation)'>
             <div id="reservation" ngModelGroup #reservation='ngModelGroup'>
-                <div class="form-group">
+                <!-- <div class="form-group">
                     <label for="trainname">Train Name</label>
                     <input 
                         type="trainname" 
@@ -16,7 +16,7 @@
                         required
                         #trainname='ngModel'>
                         <span class="help-block" *ngIf='!trainname.valid && trainname.touched'>Please Enter train name.</span>
-                </div>
+                </div> -->
 
                 <!-- <div class="form-group">
                     <label for="trainnumber">Train Number</label>
@@ -31,7 +31,7 @@
                         <span class="help-block" *ngIf='!trainnumber.valid && trainnumber.touched'>Please Enter Train Number.</span>
                 </div> -->
   
-                <!-- <div class="form-group">
+                <div class="form-group">
                     <label for="source">Source</label>
                     <input 
                         type="text" 
@@ -56,7 +56,7 @@
                         #destination='ngModel'>
                         <span class="help-block" *ngIf='!destination.valid && destination.touched'>Please enter your Destination.</span>
                         
-                </div> -->
+                </div>
   
                 <div class="form-group">
                     <label for="passenger">Number of Passenger</label>

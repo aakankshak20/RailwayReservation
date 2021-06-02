@@ -2,13 +2,12 @@ import { HttpClient, HttpHeaders,HttpErrorResponse } from '@angular/common/http'
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms'
 import { Router } from '@angular/router';
-
 @Component({
-  selector: 'app-register',
-  templateUrl: './register.component.html',
-  styleUrls: ['./register.component.css']
+  selector: 'app-adminregister',
+  templateUrl: './adminregister.component.html',
+  styleUrls: ['./adminregister.component.css']
 })
-export class RegisterComponent implements OnInit {
+export class AdminregisterComponent implements OnInit {
 
   constructor(private http: HttpClient , private _router:Router) { }
 
@@ -30,12 +29,12 @@ export class RegisterComponent implements OnInit {
     
     //send http request
     // console.log(register.value['']);
-    this.http.post<any>('http://localhost:3000/register', body, {headers:headers})
+    this.http.post<any>('http://localhost:2000/register', body, {headers:headers})
     .subscribe(res=> {
       // console.log(res);
       if(res._id!==''){
         alert('Register successffully');
-        this._router.navigate(['login'])
+        this._router.navigate(['alogin'])
       }else{
         alert('Please make sure your details')
       }

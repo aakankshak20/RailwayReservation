@@ -1,0 +1,37 @@
+
+<div class="card text-white bg-primary mb-3" style="max-width: 20rem; top: 20px;" id="leftpane">
+    <div class="card-header">Please Enter  Details</div>
+    <div class="card-body">
+        
+        <form #train='ngForm' (ngSubmit)='onSubmit(train)'>
+            <div id="train" ngModelGroup #train='ngModelGroup'>
+                <div class="form-group">
+                    <label for="trainname">Train Name</label>
+                    <input 
+                        type="trainname" 
+                        id="trainname" 
+                        class="form-control"
+                        ngModel
+                        name="trainname"
+                        required
+                        #trainname='ngModel'>
+                        <span class="help-block" *ngIf='!trainname.valid && trainname.touched'>Please Enter train name.</span>
+                </div>
+            </div>
+            <br>
+            <div class="submit">
+                <button 
+                    class="btn btn-outline-secondary btn-lg btn-block" 
+                    type="submit"
+                    [disabled]='!train.valid' >Submit</button>
+            </div>
+        </form>
+    </div>
+  </div>
+  
+
+
+  
+
+
+  

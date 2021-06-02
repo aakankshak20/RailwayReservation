@@ -18,9 +18,19 @@ import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatGridListModule } from '@angular/material/grid-list';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
-// import { LoginComponent } from './components/login/login.component';
-// import { CreateComponent } from './components/create/create.component';
-// import { HomeComponent } from './components/home/home.component';
+import { DeatailsComponent } from './reservation/deatails/deatails.component';
+import { HelpComponent } from './help/help.component';
+import { CancelreservationComponent } from './reservation/cancelreservation/cancelreservation.component';
+import { UpdatereservationComponent } from './reservation/updatereservation/updatereservation.component';
+import { SourceDestReserComponent } from './reservation/source-dest-reser/source-dest-reser.component';
+// import { RegisterComponent } from './admin/register/register.component';
+import { AdminloginComponent } from './Admin/adminlogin/adminlogin.component';
+import { AdminregisterComponent } from './Admin/adminregister/adminregister.component';
+import { TrainchangesComponent } from './Admin/trainchanges/trainchanges.component';
+import { AddTrainComponent } from './Admin/add-train/add-train.component';
+import { UpdateTrainComponent } from './Admin/update-train/update-train.component';
+import { DeleteTrainComponent } from './Admin/delete-train/delete-train.component';
+import { TrainsearchComponent } from './Admin/trainsearch/trainsearch.component';
 
 @NgModule({
   declarations: [
@@ -29,9 +39,21 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
     PagenotfoundComponent,
     HomeComponent,
     ReservationComponent,
-    // LoginComponent,
-    // CreateComponent,
+    DeatailsComponent,
+    HelpComponent,
+    CancelreservationComponent,
+    UpdatereservationComponent,
+    SourceDestReserComponent,
     
+    // CreateComponent,
+    // RegisterComponent,
+    AdminloginComponent,
+    AdminregisterComponent,
+    TrainchangesComponent,
+    AddTrainComponent,
+    UpdateTrainComponent,
+    DeleteTrainComponent,
+    TrainsearchComponent
     //  ReservComponent,
     
   ],

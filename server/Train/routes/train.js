@@ -1,6 +1,6 @@
 const express=require('express')
 const Train=require('../model/train.model')
-
+const Admin=require('../model/admin')
 
 const router = express.Router();
 
@@ -319,9 +319,9 @@ router.post('/trainadd',function(req,res){
 
 router.put('/trainupdate/:id',function(req,res){
     //get train no and find that into train db in order to update
-   Train.findByIdAndUpdate({_id:req.params.id},req.body).then(function(){
+   Train.findOneAndUpdate({Train_Number:req.params.id},req.body).then(function(){
        //for display user what trains details are updated along with updated values
-        Train.findOne({_id:req.params.id}).then(function(train){
+        Train.findOne({Train_Number:req.params.id}).then(function(train){
            res.status(201).send({
                message:'Train details has been updated please check details',
                train
@@ -379,11 +379,11 @@ router.put('/trainupdate/:id',function(req,res){
  *                         example: 200
  */
 
-router.delete('/traindelete/:id',function(req,res){
-    const no=req.params.id
+router.delete('/traindelete/:name',function(req,res){
+    const name=req.params.id
     try{
         //find train with the help of ID and remove from database
-        Train.findByIdAndRemove(no,(err,val)=>{
+        Train.findOne(name,(err,val)=>{
             if(err){
                 console.log(err)
             }else{
@@ -576,7 +576,7 @@ router.get('/trainname/:name', async function(req,res){
     try{
       await Train.find({Train_Name:name},(err,val)=>{
             if(err){
-                console.log(err)
+                res.status(400).json(err)
             }else{
                 if(val){
                     res.status(200).json(val)
@@ -721,6 +721,27 @@ router.get('/traindest/:dest',async function(req,res){
     }
 });
 
+
+router.get('/trainsd/:src/:dest',async function(req,res){
+   
+   
+    // res.send(data);
+    try{
+       await Train.find({Source:req.params.src,Destination:req.params.dest},(err,val)=>{
+            if(err){
+                console.log(err)
+            }else{
+                if(val){
+                    res.status(200).json(val)
+                }else{
+                    res.status(400).json(err)
+                }
+            }
+        });
+    }catch(err){
+        res.status(500).json(err)
+    }
+});
 
 
 module.exports=router;

@@ -1,12 +1,25 @@
 
 <div class="card text-white bg-primary mb-3" style="max-width: 20rem; top: 20px;" id="leftpane">
-    <div class="card-header">Please Enter Reservation Details</div>
+    <div class="card-header">Update Reservation</div>
     <div class="card-body">
         
         <form #reservation='ngForm' (ngSubmit)='onSubmit(reservation)'>
             <div id="reservation" ngModelGroup #reservation='ngModelGroup'>
                 <div class="form-group">
-                    <label for="trainname">Train Name</label>
+                    <div class="form-group">
+                        <label for="id">Reservation Id</label>
+                        <input 
+                            type="alphanumeric" 
+                            id="id" 
+                            class="form-control"
+                            ngModel
+                            name="id"
+                            required
+                            #id='ngModel'>
+                            <span class="help-block" *ngIf='!id.valid && id.touched'>Please Enter Reservation ID.</span>
+                    </div>
+      
+                    <!-- <label for="trainname">Train Name</label>
                     <input 
                         type="trainname" 
                         id="trainname" 
@@ -15,22 +28,10 @@
                         name="trainname"
                         required
                         #trainname='ngModel'>
-                        <span class="help-block" *ngIf='!trainname.valid && trainname.touched'>Please Enter train name.</span>
+                        <span class="help-block" *ngIf='!trainname.valid && trainname.touched'>Please Enter train name.</span> -->
                 </div>
 
-                <!-- <div class="form-group">
-                    <label for="trainnumber">Train Number</label>
-                    <input 
-                        type="trainnumber" 
-                        id="trainnumber" 
-                        class="form-control"
-                        ngModel
-                        name="trainnumber"
-                        required
-                        #trainnumber='ngModel'>
-                        <span class="help-block" *ngIf='!trainnumber.valid && trainnumber.touched'>Please Enter Train Number.</span>
-                </div> -->
-  
+                
                 <!-- <div class="form-group">
                     <label for="source">Source</label>
                     <input 
@@ -42,9 +43,9 @@
                         required
                         #source='ngModel'>
                         <span class="help-block" *ngIf='!source.valid && source.touched'>Please enter Sourec</span>
-                </div>
+                </div> -->
   
-                <div class="form-group">
+                <!-- <div class="form-group">
                     <label for="destination">Destinantion</label>
                     <input 
                         type="text" 
@@ -103,7 +104,7 @@
                 <button 
                     class="btn btn-outline-secondary btn-lg btn-block" 
                     type="submit"
-                    [disabled]='!reservation.valid' >Submit</button>
+                    >Submit</button>
             </div>
         </form>
     </div>

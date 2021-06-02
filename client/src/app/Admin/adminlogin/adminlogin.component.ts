@@ -2,16 +2,14 @@ import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms'
 import { Router } from '@angular/router';
-
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  selector: 'app-adminlogin',
+  templateUrl: './adminlogin.component.html',
+  styleUrls: ['./adminlogin.component.css']
 })
-export class LoginComponent implements OnInit {
+export class AdminloginComponent implements OnInit {
 
-  // passengerModel = new Passenger('', 0,'','','','');
-  
+ 
   loginUserD:any={};
   constructor( private http: HttpClient , private _router:Router) { }
 
@@ -31,12 +29,12 @@ export class LoginComponent implements OnInit {
     
     //send http request
     console.log(login.value['']);
-    this.http.post<any>('http://localhost:3000/login', body, {headers:headers})
+    this.http.post<any>('http://localhost:2000/login', body, {headers:headers})
     .subscribe(res=> {
       console.log(res);
      
         alert('Log in successfully');
-        this._router.navigate(['details'])
+        this._router.navigate(['trainchanges'])
      
      
       
@@ -46,7 +44,7 @@ export class LoginComponent implements OnInit {
   }
 
   register(){
-    this._router.navigate(['register'])
+    this._router.navigate(['aregister'])
   }
   ngOnDestroy(){
     document.body.className="";

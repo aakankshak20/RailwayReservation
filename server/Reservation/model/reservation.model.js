@@ -8,15 +8,15 @@ const reservation = new Schema({
     },
     Source:{
         type:String,
-        required:[true,'Source is required']
+        
     },
     Destination:{
         type:String,
-        required:[true,'Destination required']
+        
     },
     Train_Name:{
         type:String,
-        required:[true,'Train name is required']
+        
     },
     Fare:{
         type:Number,
@@ -36,7 +36,7 @@ const reservation = new Schema({
     },
     Train_Number:{
         type:Number,
-        required:[false,'Please specify train number']
+       
     }
 
 });

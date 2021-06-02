@@ -18,13 +18,11 @@
     <li class="nav-item">
       <a class="nav-link" [routerLink] = "['searchTrain']" routerLinkActive = "active" >Search Train</a>
       </li>
+      <li class="nav-item">
+        <a class="nav-link" [routerLink] = "['alogin']" routerLinkActive = "active" >Admin Login</a>
+        </li>
     </ul>
-    <mat-card>
-        <!-- <mat-card-header color="primary"> -->
-          <!-- <mat-card-title>If You see This then you are authenticated</mat-card-title> -->
-          <button type="submit" (click)="logout()" mat-raised-button color="primary">Logout</button>
-        <!-- </mat-card-header> -->
-      </mat-card>
+   
     </div>
     </nav>
     <router-outlet></router-outlet>
