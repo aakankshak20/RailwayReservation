@@ -23,6 +23,7 @@ input.ng-invalid.ng-touched, select.ng-invalid {
 /* html { background-color: black; } */
 .submit{
 padding-left: 50px;
+border-radius: 25px;
 }
 
 

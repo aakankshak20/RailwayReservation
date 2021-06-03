@@ -9,7 +9,8 @@ export class TrainchangesComponent implements OnInit {
 
   constructor(private router:Router) { }
 
-  ngOnInit(): void {
+  ngOnInit() {
+    document.body.className = "selector3";
   }
 
   
@@ -35,5 +36,9 @@ export class TrainchangesComponent implements OnInit {
   logout() {
     
     this.router.navigate([ '/login' ]);
+  }
+
+  ngOnDestroy(){
+    document.body.className="";
   }
 }

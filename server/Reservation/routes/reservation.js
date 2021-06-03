@@ -249,9 +249,10 @@ router.post('/reservationsd', async function(req,res){
                 
                 Reservation.findOneAndUpdate({_id:reser._id},reserfinal).then(function(){
                     Reservation.findOne({_id:reser._id}).then(function(reservation){
-                        res.status(201).send(
+                        res.status(201).json(
                            
-                            reservation
+                            reservation,
+                            reserfinal
                             
                         );
                     });

@@ -9,7 +9,7 @@ import { NgForm } from '@angular/forms';
   styleUrls: ['./trainsearch.component.css']
 })
 export class TrainsearchComponent implements OnInit {
-
+alltrain:any;
   constructor(private http: HttpClient , private _router:Router) { }
 
   ngOnInit(): void {
@@ -25,17 +25,23 @@ export class TrainsearchComponent implements OnInit {
     const name=reservation.value[''].trainname
     //send http request
      console.log(reservation.value['']);
-    this.http.get<any>('http://localhost:2000/trainname/'+name,  {headers:headers})
+  this.http.get<any>('http://localhost:2000/trainname/'+name,  {headers:headers})
     .subscribe(res=> {
       
       console.log(res[0]._id);
+      this.alltrain= res
       // alert('');
-      alert(`Here is Your Train ID
-             ID=${res[0]._id}  
+      // alert(`Here is Your Train ID
+      //        ID=${res[0]._id}  
             
-      `);
+      // `);
       // alert("Details are"+res[0]);
-      this._router.navigate(['trainchanges'],{})
+     
     });
+   
+}
+
+gonext(){
+  this._router.navigate(['trainchanges'])
 }
 }

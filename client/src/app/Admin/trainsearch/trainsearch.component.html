@@ -30,6 +30,34 @@
   </div>
   
 
+ <div class="card-body">
+  <!-- <h2>Please make sure Your Log in our system in order to make reservation</h2> -->
+ <table class="table table-hover">
+     <thead>
+         <tr>
+             <th>Train Name</th>
+             <th>Train Number</th>
+             <th>Source</th>
+             <th>Destination</th>
+             <th>Fare</th>
+             <th>Action</th>
+         </tr>
+     </thead>
+     <tbody>
+         <tr *ngFor='let train of alltrain'>
+             <td>{{train.Train_Name}}</td>
+             <td>{{train.Train_Number}}</td>
+             <td>{{train.Source}}</td>
+             <td>{{train.Destination}}</td>
+             <td>{{train.Fair |  currency:'INR':'symbol-narrow'}}</td>
+             <td>
+                 <button mat-flat-button color="warn" (click)="gonext()">Back to previous</button>
+             </td>
+         </tr>
+     </tbody>
+ </table>
+</div> 
+
 
   
 

@@ -14,7 +14,7 @@ export class AdminloginComponent implements OnInit {
   constructor( private http: HttpClient , private _router:Router) { }
 
   ngOnInit() {
-    document.body.className = "selector2";
+    document.body.className = "selector3";
   }
   onSubmit(login: NgForm){
     const headers = new HttpHeaders()

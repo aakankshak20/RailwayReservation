@@ -9,7 +9,7 @@ import { NgForm } from '@angular/forms';
   styleUrls: ['./update-train.component.css']
 })
 export class UpdateTrainComponent implements OnInit {
-
+  alltrain:any;
   constructor(private http: HttpClient , private _router:Router) { }
 
   ngOnInit(): void {
@@ -32,6 +32,7 @@ export class UpdateTrainComponent implements OnInit {
       // "Train_Number":reservation.value[''].trainnumber
     };
     
+     
     const id=train.value[''].trainnumber;
     //send http request
     console.log(train.value['']);
@@ -40,9 +41,11 @@ export class UpdateTrainComponent implements OnInit {
       
       console.log(res);
       // alert('');
-      alert(` Train Successfully Updated`);
+     
+       alert(` Train Successfully Updated`);
+       this._router.navigate(['trainchanges']);
       // alert("Details are"+res[0]);
-      this._router.navigate(['trainchanges']);
+      
     });
   }
 

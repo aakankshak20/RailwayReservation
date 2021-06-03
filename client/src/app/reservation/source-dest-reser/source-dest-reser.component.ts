@@ -2,14 +2,14 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient,HttpHeaders } from '@angular/common/http';
 import { Router,NavigationExtras } from '@angular/router';
 import { NgForm } from '@angular/forms';
-// import { Console } from 'console';
+
 @Component({
   selector: 'app-source-dest-reser',
   templateUrl: './source-dest-reser.component.html',
   styleUrls: ['./source-dest-reser.component.css']
 })
 export class SourceDestReserComponent implements OnInit {
-
+alltrain:any;
   constructor(private http: HttpClient , private _router:Router) { }
 
   ngOnInit(): void {
@@ -37,16 +37,19 @@ export class SourceDestReserComponent implements OnInit {
     .subscribe(res=> {
       
       console.log(res);
-      // alert('');
+     
+      
       alert(`Please make a note of reservation id for further operations
              Reservation ID=${res._id}  
              Total Fare  ${res.Fare}
              Date ${res.Reservation_Date}
       `);
-      // alert("Details are"+res[0]);
-      this._router.navigate(['details'],{})
+     
+     
     });
   }
 
-
+  backpage(){
+  this._router.navigate(['details'])
+}
 }
