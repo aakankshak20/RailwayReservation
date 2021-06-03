@@ -43,7 +43,7 @@ const router = express.Router();
  *                         message:
  *                          type: strig
  *                          description: message for successful registration otherwise error message
- *                          example: Logged in Successfully
+ *                          example: Sucess
  */
 
 router.post('/login',function(req,res){
@@ -170,15 +170,15 @@ router.post('/register',function(req,res,next){
  *                 type: string
  *                 description: train destination.
  *                 example: Mumbai
- *               Train number:
+ *               Train_Number:
  *                 type: number
  *                 description: train number.
  *                 example: 223
- *               Train name:
+ *               Train_Name:
  *                 type: string
  *                 description: train name.
  *                 example: rajdhani
- *               Fare:
+ *               Fair:
  *                 type: number
  *                 description: train fare.
  *                 example: 200
@@ -212,7 +212,7 @@ router.post('/register',function(req,res,next){
  *                         type: string
  *                         description: Destination name.
  *                         example: pune
- *                       Fare:
+ *                       Fair:
  *                         type: number
  *                         description: Fare from source t destination.
  *                         example: 200
@@ -246,10 +246,17 @@ router.post('/trainadd',function(req,res){
 
 /**
  * @swagger
- * /trainupdate{id}:
+ * /trainupdate/{id}:
  *   put:
  *     summary: update train in our train database
  *     description: update train in our train database. Can be used for making reservations.
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         required: true
+ *         description: Numeric and unique ID of the train .
+ *         schema:
+ *           type: number
  *     requestBody:
  *       required: true
  *       content:
@@ -265,15 +272,15 @@ router.post('/trainadd',function(req,res){
  *                 type: string
  *                 description: train destination.
  *                 example: Mumbai
- *               Train number:
+ *               Train_Number:
  *                 type: number
  *                 description: train number.
  *                 example: 223
- *               Train name:
+ *               Train_Name:
  *                 type: string
  *                 description: train name.
  *                 example: rajdhani
- *               Fare:
+ *               Fair:
  *                 type: number
  *                 description: train fare.
  *                 example: 200
@@ -311,9 +318,9 @@ router.post('/trainadd',function(req,res){
  *                         type: string
  *                         description: Destination name.
  *                         example: pune
- *                       Fare:
+ *                       Fair:
  *                         type: number
- *                         description: Fare from source t destination.
+ *                         description: Fare from source to destination.
  *                         example: 200
  */
 
@@ -334,10 +341,17 @@ router.put('/trainupdate/:id',function(req,res){
 
 /**
  * @swagger
- * /traindelete{id}:
+ * /traindelete/{name}:
  *   delete:
  *     summary: delete  train from our train database
  *     description: delete  train from our train database. 
+ *     parameters:
+ *       - in: path
+ *         name: name
+ *         required: true
+ *         description: name of the train .
+ *         schema:
+ *           type: string
  *     requestBody:
  *       required: false       
  *     responses:
@@ -373,17 +387,17 @@ router.put('/trainupdate/:id',function(req,res){
  *                         type: string
  *                         description: Destination name.
  *                         example: pune
- *                       Fare:
+ *                       Fair:
  *                         type: number
  *                         description: Fare from source t destination.
  *                         example: 200
  */
 
 router.delete('/traindelete/:name',function(req,res){
-    const name=req.params.id
+    const name=req.params.name;
     try{
-        //find train with the help of ID and remove from database
-        Train.findOne(name,(err,val)=>{
+        //find train with the help of  and remove from database
+        Train.findOneAndDelete({Train_Name:name},(err,val)=>{
             if(err){
                 console.log(err)
             }else{
@@ -439,7 +453,7 @@ router.delete('/traindelete/:name',function(req,res){
  *                         type: string
  *                         description: Destination name.
  *                         example: pune
- *                       Fare:
+ *                       Fair:
  *                         type: number
  *                         description: Fare from source t destination.
  *                         example: 200
@@ -499,9 +513,9 @@ router.get('/trains', async function(req,res){
  *                         type: string
  *                         description: Destination name.
  *                         example: pune
- *                    Fare:
+ *                    Fair:
  *                         type: number
- *                         description: Fare from source t destination.
+ *                         description: Fare from source to destination.
  *                         example: 200
 */
 
@@ -564,7 +578,7 @@ router.get('/train/:id',async function(req,res){
  *                         type: string
  *                         description: Destination name.
  *                         example: pune
- *                    Fare:
+ *                    Fair:
  *                         type: number
  *                         description: Fare from source t destination.
  *                         example: 200
@@ -630,7 +644,7 @@ router.get('/trainname/:name', async function(req,res){
  *                         type: string
  *                         description: Destination name.
  *                         example: pune
- *                    Fare:
+ *                    Fair:
  *                         type: number
  *                         description: Fare from source t destination.
  *                         example: 200
@@ -695,7 +709,7 @@ router.get('/trainsource/:source',async function(req,res){
  *                         type: string
  *                         description: Destination name.
  *                         example: pune
- *                    Fare:
+ *                    Fair:
  *                         type: number
  *                         description: Fare from source t destination.
  *                         example: 200

@@ -145,7 +145,7 @@ router.get('/trainname/:name', async function(req,res){
 
 /**
  * @swagger
- * /train/{id}:
+ * /trains/{id}:
  *   get:
  *     summary: Retrieve a single available train with the help of train number.
  *     description: Retrieve a single available train.Can be used for making reservations.
@@ -183,7 +183,7 @@ router.get('/trainname/:name', async function(req,res){
  *                         type: string
  *                         description: Destination name.
  *                         example: pune
- *                    Fare:
+ *                    Fair:
  *                         type: number
  *                         description: Fare from source t destination.
  *                         example: 200

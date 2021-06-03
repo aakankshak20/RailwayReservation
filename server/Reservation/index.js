@@ -17,7 +17,7 @@ const swaggerJSDoc = require('swagger-jsdoc');
 const swaggerDefinition = {
   openapi: '3.0.0',
   info: {
-    title: 'Express API for RailwayReservation-Train',
+    title: 'Express API for RailwayReservation-Reservation',
     version: '1.0.0',
   },
 };
@@ -53,6 +53,6 @@ app.use(function(err,req,res,next){
 
 
  app.listen(process.env.port||4000,function(){
-        console.log('Reservation service running');
+        console.log('Reservation service running on 4000');
     
  });

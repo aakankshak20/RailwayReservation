@@ -28,11 +28,11 @@ const router = express.Router();
  *                 type: string
  *                 description: train destination.
  *                 example: Mumbai
- *               Reservation Date:
+ *               Reservation_Date:
  *                 type: date
  *                 description: for making reservation.
  *                 example: 2021-04-07
- *               Train name:
+ *               Train_Name:
  *                 type: string
  *                 description: train name.
  *                 example: rajdhani
@@ -57,10 +57,6 @@ const router = express.Router();
  *                   items:
  *                     type: object
  *                     properties:
- *                       message:
- *                         type: string
- *                         description: information about updation
- *                         example: Your Reservation Details are below Please keep a note of _id in oreder to get reservation details
  *                       Train_Number:
  *                         type: integer
  *                         description: The Train number.
@@ -213,6 +209,85 @@ const val=9;
 });
 
 //for by source-destination reservation
+
+/**
+ * @swagger
+ * /reservationsd:
+ *   post:
+ *     summary: For making new reservation with source and destination
+ *     description: For making new reservation so that they can travel and cancel if required
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               Source:
+ *                 type: string
+ *                 description: train source.
+ *                 example: Delhi
+ *               Destination:
+ *                 type: string
+ *                 description: train destination.
+ *                 example: Pune
+ *               Reservation_Date:
+ *                 type: date
+ *                 description: for making reservation.
+ *                 example: 2021-04-07
+ *               Class:
+ *                 type: string
+ *                 description: class of train
+ *                 example: second
+ *               Passenger :
+ *                 type: number
+ *                 description: number of passenger travelling
+ *                 example: 2
+ *     responses:
+ *       201:
+ *         description: It will make new reservation along with required paramaters.
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 data:
+ *                   type: array
+ *                   items:
+ *                     type: object
+ *                     properties:
+ *                       Train_Number:
+ *                         type: integer
+ *                         description: The Train number.
+ *                         example: 121
+ *                       Train_Name:
+ *                         type: string
+ *                         description: The trains's name.
+ *                         example: rajdhani
+ *                       id:
+ *                         type: alphanumeric
+ *                         description: unique id for reservation
+ *                         example: 67241325svb
+ *                       Source:
+ *                         type: string
+ *                         description: Source name.
+ *                         example: Mumbai
+ *                       Destination:
+ *                         type: string
+ *                         description: Destination name.
+ *                         example: pune
+ *                       Fare:
+ *                         type: number
+ *                         description: Fare from source t destination.
+ *                         example: 400
+ *                       Passenger:
+ *                         type: number
+ *                         description: no of passenger.
+ *                         example: 2
+ */
+
+
+
 router.post('/reservationsd', async function(req,res){
 
     const reservation = new Reservation({
@@ -251,8 +326,8 @@ router.post('/reservationsd', async function(req,res){
                     Reservation.findOne({_id:reser._id}).then(function(reservation){
                         res.status(201).json(
                            
-                            reservation,
-                            reserfinal
+                            reservation
+                           
                             
                         );
                     });
@@ -291,8 +366,8 @@ router.post('/reservationsd', async function(req,res){
  *                   items:
  *                     type: object
  *                     properties:
- *                       id:
- *                         type: alphanumeric
+ *                       _id:
+ *                         type: string
  *                         description: reservation id .
  *                         example: 12123198udi
  *                       Train_Number:
@@ -346,9 +421,9 @@ router.get('/reservations',  async function (req, res) {
  *       - in: path
  *         name: id
  *         required: true
- *         description: Numeric  and unique ID of the reservation to retrieve a reservation.
+ *         description: Alph-Numeric  and unique ID of the reservation to retrieve a reservation.
  *         schema:
- *           type: integer
+ *           type: string
  *     responses:
  *       200:
  *         description: A single reservation.
@@ -361,7 +436,7 @@ router.get('/reservations',  async function (req, res) {
  *                   type: object
  *                   properties:
  *                    id:
- *                         type: alphanumeric
+ *                         type: string
  *                         description: reservation id.
  *                         example: 674232eab
  *                    Train_Number:
@@ -414,10 +489,17 @@ router.get('/reservations/:id',function(req,res){
 
 /**
  * @swagger
- * /reservations{id}:
+ * /reservations/{id}:
  *   delete:
  *     summary: delete  reservation from our reservation database
  *     description: delete  reservation from our reservation database. 
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         required: true
+ *         description: Numeric  and unique ID of the reservation to retrieve a reservation.
+ *         schema:
+ *           type: string
  *     requestBody:
  *       required: false       
  *     responses:
@@ -494,10 +576,17 @@ router.delete('/reservations/:id',function(req,res){
 
 /**
  * @swagger
- * /reservation{id}:
+ * /reservation/{id}:
  *   put:
  *     summary: update reservation in our reservation database
  *     description: update reservation in our reservation database. Can be used for making/cancel reservations.
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         required: true
+ *         description: Numeric  and unique ID of the reservation to retrieve a reservation.
+ *         schema:
+ *           type: string
  *     requestBody:
  *       required: true
  *       content:

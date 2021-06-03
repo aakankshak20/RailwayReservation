@@ -32,9 +32,7 @@ import { UpdateTrainComponent } from './Admin/update-train/update-train.componen
 import { DeleteTrainComponent } from './Admin/delete-train/delete-train.component';
 import { TrainsearchComponent } from './Admin/trainsearch/trainsearch.component';
 import { FooterComponent } from './footer/footer.component';
-import { RegisterComponent } from './user/register/register.component';
-import { UregisterComponent } from './user/uregister/uregister.component';
-import { UloginComponent } from './user/ulogin/ulogin.component';
+
 
 @NgModule({
   declarations: [
@@ -59,9 +57,7 @@ import { UloginComponent } from './user/ulogin/ulogin.component';
     DeleteTrainComponent,
     TrainsearchComponent,
     FooterComponent,
-    RegisterComponent,
-    UregisterComponent,
-    UloginComponent
+    
     //  ReservComponent,
     
   ],
