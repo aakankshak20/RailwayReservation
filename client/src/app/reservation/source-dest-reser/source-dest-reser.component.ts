@@ -10,6 +10,8 @@ import { NgForm } from '@angular/forms';
 })
 export class SourceDestReserComponent implements OnInit {
 alltrain:any;
+public id:any;
+
   constructor(private http: HttpClient , private _router:Router) { }
 
   ngOnInit(): void {
@@ -37,7 +39,7 @@ alltrain:any;
     .subscribe(res=> {
       
       console.log(res);
-     
+      this.id=res._id;
       
       alert(`Please make a note of reservation id for further operations
              Reservation ID=${res._id}  
@@ -45,11 +47,12 @@ alltrain:any;
              Date ${res.Reservation_Date}
       `);
      
+      this.getid(this.id);
      
     });
   }
 
-  backpage(){
-  this._router.navigate(['details'])
+  getid(id:any){
+  this._router.navigate(['reservation/',this.id]);
 }
 }

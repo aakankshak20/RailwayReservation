@@ -10,9 +10,11 @@ export class DeatailsComponent implements OnInit {
 
   
   constructor(private router:Router) {
-    
+   
+  
   }
-
+  
+  
   cancel(){
     this.router.navigate(['cancelreservation'])
    

@@ -19,6 +19,8 @@ import { TrainsearchComponent } from './Admin/trainsearch/trainsearch.component'
 import { DeleteTrainComponent } from './Admin/delete-train/delete-train.component';
 import { UpdateTrainComponent } from './Admin/update-train/update-train.component';
 import { AddTrainComponent } from './Admin/add-train/add-train.component';
+import { ReservationdetailsComponent } from './reservation/reservationdetails/reservationdetails.component';
+import { PaymentComponent } from './payment/payment.component';
 
 const routes: Routes = [
   {path:'',redirectTo:'/home',pathMatch:'full'},
@@ -27,6 +29,7 @@ const routes: Routes = [
   {path:'login', component:LoginComponent},
   {path:'searchTrain',component:SearchTrainComponent},
   {path:'reservation',component:ReservationComponent},
+  {path:'reservation/:id',component:ReservationdetailsComponent},
   {path:'details',component:DeatailsComponent},
   {path:'help',component:HelpComponent},
   {path:'updatereservation',component:UpdatereservationComponent},
@@ -39,7 +42,9 @@ const routes: Routes = [
   {path:'DeleteTrain',component:DeleteTrainComponent},
   {path:'UpdateTrain',component:UpdateTrainComponent},
   {path:'AddTrain',component:AddTrainComponent},
+  {path:'payment',component:PaymentComponent},
   {path:"**", component:PagenotfoundComponent}
+  
 
 ];
 
@@ -53,7 +58,6 @@ export const routingComponents=[
                 PagenotfoundComponent,HomeComponent,ReservationComponent,HelpComponent,
                 CancelreservationComponent,UpdatereservationComponent,SourceDestReserComponent,
                 AdminregisterComponent,AdminloginComponent,TrainchangesComponent,AddTrainComponent,
-                DeleteTrainComponent,UpdateTrainComponent,TrainsearchComponent
-
-               
+                DeleteTrainComponent,UpdateTrainComponent,TrainsearchComponent,ReservationdetailsComponent,
+                PaymentComponent
 ]

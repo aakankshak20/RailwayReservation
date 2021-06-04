@@ -22,7 +22,7 @@ body{
 } 
 
 #header{
-    margin: 10px ;
+    /* margin: 1px ; */
     text-align: center; 
     align-items: center;
     padding: 25px; 
@@ -30,6 +30,7 @@ body{
     font-family:'Courier New', Courier, monospace;  
     background-color: black;
     color:aliceblue;
+    
 }
 button{
     margin: 2px;
@@ -55,11 +56,12 @@ button{
    background-size: cover;
    }
 
-   .container{
+.container{
     /* margin: 20px ; */
     text-align: center; 
     align-items: center;
     /* padding: 100px; */
     background-color: black;
     color: aliceblue;
+   
 }

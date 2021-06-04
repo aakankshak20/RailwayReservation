@@ -8,7 +8,7 @@ import { NgForm } from '@angular/forms';
   styleUrls: ['./updatereservation.component.css']
 })
 export class UpdatereservationComponent implements OnInit {
-
+  public id:any;
   constructor(private http: HttpClient , private _router:Router) { }
 
   ngOnInit(): void {
@@ -36,6 +36,7 @@ export class UpdatereservationComponent implements OnInit {
     .subscribe(res=> {
       
       console.log(res.reserved);
+      this.id=res.reserved._id;
       // alert('');
       alert(`Please make a note of reservation id for further operations
              Reservation ID=${res.reserved._id}  
@@ -43,9 +44,14 @@ export class UpdatereservationComponent implements OnInit {
              Date ${res.reserved.Reservation_Date}
       `);
       // alert("Details are"+res[0]);
-      this._router.navigate(['details'],{})
+      // this._router.navigate(['details'],)
+      this.getid(this.id);
     });
+    
   }
 
+  getid(id:any){
+    this._router.navigate(['reservation/',this.id]);
+  }
 
 }

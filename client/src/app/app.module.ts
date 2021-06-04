@@ -32,6 +32,8 @@ import { UpdateTrainComponent } from './Admin/update-train/update-train.componen
 import { DeleteTrainComponent } from './Admin/delete-train/delete-train.component';
 import { TrainsearchComponent } from './Admin/trainsearch/trainsearch.component';
 import { FooterComponent } from './footer/footer.component';
+import { ReservationdetailsComponent } from './reservation/reservationdetails/reservationdetails.component';
+import { PaymentComponent } from './payment/payment.component';
 
 
 @NgModule({
@@ -57,6 +59,8 @@ import { FooterComponent } from './footer/footer.component';
     DeleteTrainComponent,
     TrainsearchComponent,
     FooterComponent,
+    ReservationdetailsComponent,
+    PaymentComponent,
     
     //  ReservComponent,
     

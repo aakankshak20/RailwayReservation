@@ -22,10 +22,14 @@ input.ng-invalid.ng-touched, select.ng-invalid {
 }
 /* html { background-color: black; } */
 .submit{
-padding-left: 50px;
+padding-left: 70px;
 border-radius: 25px;
 }
 
+#newadmin{
+    width:100%;
+    background-color: black;
+}
 
 * {
     box-sizing: border-box;

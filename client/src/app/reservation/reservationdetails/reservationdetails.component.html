@@ -1,0 +1,28 @@
+<p>reservationdetails are here</p>
+<h3>Your Reservation with Id= {{reservationID}}</h3>
+
+<button (click)="more()">More Details</button>
+
+<div class="card-body">
+    <!-- <h2>Please make sure Your Log in our system in order to make reservation</h2> -->
+   <table class="table table-hover">
+       <thead>
+           <tr>
+               <th>Details</th>
+               <th></th>
+              <th>
+                <button mat-flat-button color="warn" (click)="payment()">Payment</button>
+              </th>
+           </tr>
+       </thead>
+       <tbody>
+           <tr *ngFor='let reservation of lreservation | keyvalue'>
+               <td>{{reservation.key}}</td>
+               <td>{{reservation.value}}</td>
+            </tr>
+       </tbody>
+   </table>
+</div> 
+
+
+

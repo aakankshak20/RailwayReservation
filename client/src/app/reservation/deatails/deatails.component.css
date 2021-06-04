@@ -17,13 +17,14 @@
 }
 
 
-   button{
+button{
        /* padding: 2px; */
        margin: 10px;
+       /* left: 570px; */
 
    }
 
-   mat-card{
-       align-items: right;
-   }
-  
+  #logout{
+      left:520px;
+      margin: 0px;
+  }  
