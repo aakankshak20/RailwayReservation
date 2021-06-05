@@ -1,5 +1,7 @@
 
-
+body{
+    background-image: linear-gradient(to right, rgb(151, 32, 105) , rgb(136, 136, 201));
+}
 #sub{
     margin:auto;
     position:absolute;

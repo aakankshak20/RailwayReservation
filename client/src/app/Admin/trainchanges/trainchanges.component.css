@@ -17,4 +17,14 @@
        margin: 10px;
 
    }
+
+
+
+#submit{
+    left:800px;
+    margin: 0px;
+}
   
+   body{
+        background-image: linear-gradient(to right, rgb(192, 93, 93) , rgb(93, 93, 185));
+   }

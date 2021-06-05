@@ -4,7 +4,7 @@ import { HttpClient,HttpHeaders } from '@angular/common/http';
 import { Router,NavigationExtras } from '@angular/router';
 import { NgForm } from '@angular/forms';
 
-// import { Console } from 'console';
+
 
 @Component({
   selector: 'app-reservation',
@@ -19,6 +19,7 @@ export class ReservationComponent implements OnInit {
   ngOnInit() {
     document.body.className = "selector2";
   }
+  
   onSubmit(reservation: NgForm){
     const headers = new HttpHeaders()
           .set('Authorization', 'my-auth-token')
@@ -62,7 +63,6 @@ export class ReservationComponent implements OnInit {
   }
   
   
-
   ngOnDestroy(){
     document.body.className="";
   }
