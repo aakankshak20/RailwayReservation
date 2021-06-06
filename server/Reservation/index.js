@@ -5,7 +5,7 @@ const cors=require('cors');
 
 
 mongoose.connect('mongodb+srv://aakanksha:aakanksha1@cluster0.80ol3.mongodb.net/Reservation',{useNewUrlParser:true ,useFindAndModify:true,useUnifiedTopology: true } );
-//mongoose.Promise = global.Promise;
+mongoose.Promise = global.Promise;
 
 // mongoose.createConnection('mongodb+srv://aakanksha:aakanksha1@cluster0.80ol3.mongodb.net/Train',{useNewUrlParser:true})
 

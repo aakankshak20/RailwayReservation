@@ -28,6 +28,9 @@ padding-left: 50px;
 
 * {
     box-sizing: border-box;
+    /* background-image: linear-gradient(to right, rgb(151, 32, 105) , rgb(136, 136, 201)); */
   }
   
-  
+  body{
+    background-image: linear-gradient(to right, rgb(207, 205, 95) , rgb(136, 136, 201));
+}

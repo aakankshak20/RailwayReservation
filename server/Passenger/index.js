@@ -2,7 +2,7 @@ const express= require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const cors=require('cors');
-mongoose.connect('mongodb+srv://aakanksha:aakanksha1@cluster0.80ol3.mongodb.net/Passenger',{useNewUrlParser:true, useUnifiedTopology: true } );
+mongoose.connect('mongodb+srv://aakanksha:aakanksha1@cluster0.80ol3.mongodb.net/Passenger',{useNewUrlParser:true, useUnifiedTopology: true} );
 mongoose.Promise = global.Promise;
 
 const passenger=require('./routes/passenger')

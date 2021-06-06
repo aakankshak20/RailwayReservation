@@ -31,3 +31,6 @@ padding-left: 50px;
   }
   
  
+  body{
+    background-image: linear-gradient(to right, rgb(211, 161, 172) , rgb(136, 136, 201));
+}

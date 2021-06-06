@@ -30,4 +30,6 @@ padding-left: 50px;
     box-sizing: border-box;
   }
   
-  
+  body{
+    background-image: linear-gradient(to right, rgb(207, 205, 95) , rgb(136, 136, 201));
+}
