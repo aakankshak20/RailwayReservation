@@ -12,6 +12,15 @@
     height: 100%;
     
   }
+
+  input.ng-invalid.ng-touched, select.ng-invalid {
+    border: 2px solid #ff6969;
+}
+
+.help-block {
+    color: #ff6969;
+}
+
   .form-signin {
     width: 100%;
     max-width: 330px;
