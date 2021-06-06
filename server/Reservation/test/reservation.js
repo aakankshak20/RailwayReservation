@@ -40,19 +40,19 @@ describe('Reservation API', () =>{
      * Test the GET(by id) route
      */
 
-     describe("GET /reservations/:id", () =>{
-        it('get all reservations',() =>{
-            var id=1;
-            return axios.get('http://localhost:4000/reservations/'+id).then(res =>{
-                const body=res.data;
-               expect(body).to.be.a('array');
+    //  describe("GET /reservations/:id", () =>{
+    //     it('get all reservations',() =>{
+    //         var id=1;
+    //         return axios.get('http://localhost:4000/reservations/'+id).then(res =>{
+    //             const body=res.data;
+    //            expect(body).to.be.a('array');
             
             
                
-            })
+    //         })
            
-        })  
-    })
+    //     })  
+    // })
     
     /**
      * Test the POST route

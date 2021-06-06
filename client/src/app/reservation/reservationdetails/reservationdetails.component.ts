@@ -32,4 +32,7 @@ export class ReservationdetailsComponent implements OnInit {
     this.router.navigate(['/payment']);
     console.log("Go for payment");
   }
+  option(){
+    this.router.navigate(['/details']);
+  }
 }
