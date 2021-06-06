@@ -3,9 +3,9 @@ var chaiHttp=require('chai-http');
 var server=require('../routes/reservation');
 var axios=require('axios');
 //Assertion Style
-const expect=require('chai').expect
-chai.should();
-
+const expect=chai.expect
+// 
+const should=chai.should();;
 chai.use(chaiHttp);
 
 describe('Reservation API', () =>{
@@ -27,10 +27,10 @@ describe('Reservation API', () =>{
     describe("GET /reservations", () =>{
     it('get all reservations',() =>{
         return axios.get('http://localhost:4000/reservations').then(res =>{
-        //    expect(res.data).to.be.a('array');
-        //    expect(res.statusCode).to.equal(200);
-        // res.should.have.status(200);
-        res.body.should.be.a('array');
+            const body=res.data;
+           expect(body).to.be.a('array');
+        
+        
            
         })
        
@@ -39,6 +39,20 @@ describe('Reservation API', () =>{
     /**
      * Test the GET(by id) route
      */
+
+     describe("GET /reservations/:id", () =>{
+        it('get all reservations',() =>{
+            var id=1;
+            return axios.get('http://localhost:4000/reservations/'+id).then(res =>{
+                const body=res.data;
+               expect(body).to.be.a('array');
+            
+            
+               
+            })
+           
+        })  
+    })
     
     /**
      * Test the POST route
