@@ -35,13 +35,13 @@ export class UpdatereservationComponent implements OnInit {
     this.http.put<any>('http://localhost:4000/reservation/'+id, body, {headers:headers})
     .subscribe(res=> {
       
-      console.log(res.reserved);
-      this.id=res.reserved._id;
+      console.log(res);
+      this.id=res._id;
       // alert('');
       alert(`Please make a note of reservation id for further operations
-             Reservation ID=${res.reserved._id}  
-             Total Fare  ${res.reserved.Fare}
-             Date ${res.reserved.Reservation_Date}
+             Reservation ID=${res._id}  
+             Total Fare  ${res.Fare}
+             Date ${res.Reservation_Date}
       `);
       // alert("Details are"+res[0]);
       // this._router.navigate(['details'],)

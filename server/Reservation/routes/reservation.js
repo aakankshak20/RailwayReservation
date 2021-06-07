@@ -660,11 +660,40 @@ router.delete('/reservations/:id',function(req,res){
 
 
 router.put('/reservation/:id',function(req,res,next){
+   
     Reservation.findOneAndUpdate({_id:req.params.id},req.body).then(function(){
-        Reservation.findOne({_id:req.params.id}).then(function(reserved){
-            res.status(201).send({
-                message:"Your Updated reservation details,Please find below details ",
-                reserved});
+        console.log(req.body);
+        
+        Reservation.findOne({_id:req.params.id}).then(function(reser){
+            // res.status(201).send({
+            //     message:"Your Updated reservation details,Please find below details ",
+            //     reserved});
+            if(reser){
+                // console.log(reser)
+            axios.get("http://localhost:2000/trainname/"+ reser.Train_Name)
+                .then((response)=>{
+                    // console.log(response.data)
+                     reserfinal={
+    
+                        Fare: response.data[0].Fair*reser.Passenger,
+                       
+                    };
+                    
+                Reservation.findOneAndUpdate({_id:req.params.id},reserfinal).then(function(){
+                    Reservation.findOne({_id:reser._id}).then(function(reservation){
+                    // console.log(reservation);
+                        res.status(201).send(
+                            reservation
+                            
+                        );
+                    });
+                })
+                //res.send({reserfinal,reservation});
+                // console.log(reser._id)
+            });
+        }else{
+            res.send("check train schedule");
+        }
         });
     });
 });
