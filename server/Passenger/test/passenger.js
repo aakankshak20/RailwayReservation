@@ -1,34 +1,19 @@
-let chai = require("chai");
-let chaiHttp=require('chai-http');
-let server= require('../routes/passenger');
+const expect = require('chai').expect;
+const request = require('supertest');
 
-//Assertion style
-chai.should();
+const app="http://localhost:3000/";
 
-chai.use(chaiHttp);
+const body={
+    name:'john',
+    email:'john@gmail.com',
+    password:'john123'
+}
 
-describe('Passenger API',()=>{
-    /**
-     * Test the GET route
-     */
-    describe('GET/')
-
-
-
-     /**
-     * Test the GET (by id) route
-     */
-
-    /**
-     * Test the POST route
-     */
-
-    /**
-     * Test the PUT route
-     */
-
-    /**
-     * Test the DELETE route
-     */
-
-})
+describe("Post Passenger",() =>{
+    it('Test case for New Passenger',(done) =>{
+        request(app)
+        .post('register')
+    .send(body)
+     .expect(200,done);
+    });
+});

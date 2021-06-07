@@ -1,69 +1,27 @@
 var chai=require('chai');
-var chaiHttp=require('chai-http');
-var server=require('../routes/reservation');
-var axios=require('axios');
-//Assertion Style
-const expect=chai.expect
-// 
+const request=require('supertest');
+const expect=require('chai').expect;
+
 const should=chai.should();;
-chai.use(chaiHttp);
 
-describe('Reservation API', () =>{
-    /**
-     * Test the GET route
-     */
-    // describe("GET /reservations", (done) =>{
-    //     it('It should GET all reservations', () =>{
-    //         chai.request(server)
-    //         .get('/reservations')
-    //         .end((err,response) => {
-    //             response.should.have.status(200);
-    //             //response.body.should.be.a('array');
-    //         done();
-    //         })
-    //     })
-    // })
 
-    describe("GET /reservations", () =>{
-    it('get all reservations',() =>{
-        return axios.get('http://localhost:4000/reservations').then(res =>{
-            const body=res.data;
-           expect(body).to.be.a('array');
-        
-        
-           
-        })
-       
-    })  
-})
-    /**
-     * Test the GET(by id) route
-     */
+const app="http://localhost:4000/";
 
-    //  describe("GET /reservations/:id", () =>{
-    //     it('get all reservations',() =>{
-    //         var id=1;
-    //         return axios.get('http://localhost:4000/reservations/'+id).then(res =>{
-    //             const body=res.data;
-    //            expect(body).to.be.a('array');
-            
-            
-               
-    //         })
-           
-    //     })  
-    // })
-    
-    /**
-     * Test the POST route
-     */
-    
-    /**
-     * Test the UPDATE route
-     */
-    
-    /**
-     * Test the DELETE route
-     */
-    
+const body ={
+    Reservation_Date:'2021-06-23',
+    Source:'Agra',
+    Destination:'Mumbai',
+    Train_Name:'Agra Express',
+    Train_Number:123,
+    Passenger:3,
+    Class:'second'   
+}
+
+describe('Post a new Reservation',() =>{
+    it("Test case for Making new Reservation" , (done) =>{
+        request(app)
+		.post('reservation')
+    .send(body)
+		.expect(201, done);
+	});
 })
