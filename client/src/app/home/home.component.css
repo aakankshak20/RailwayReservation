@@ -38,7 +38,8 @@ button{
 }
 
 #marquee{
-    background-color: black;
+    background-color: rgb(7, 7, 7);
+    color:antiquewhite;
 }
 .routes{
     

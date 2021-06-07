@@ -11,14 +11,14 @@ export class HomeComponent implements OnInit {
 
   }
    getregister(){
-   this.router.navigate(['register']);
+   this.router.navigate(['/register']);
    }
  
    getlogin(){
-     this.router.navigate(['login']);
+    this.router.navigate([ '/login' ]);
    }
    searchTrain(){
-     this.router.navigate(['searchTrain']);
+     this.router.navigate(['/searchTrain']);
    }
 
   ngOnInit(): void {
