@@ -1,0 +1,15 @@
+body{
+    margin:auto;
+    position:absolute;
+    top: 50%;
+    left: 50%;
+    width:30em;
+    height:20em;
+    text-align: center;
+    margin-left: -15em;
+    margin-top: -9em; /*set to a negative number 1/2 of our height
+    margin-left: -15em; /*set to a negative number 1/2 of our width
+    /* border: 1px solid rgb(211, 137, 137); */
+    border-radius: 25px; 
+    background-image: linear-gradient(to right, rgb(189, 122, 189) , yellow);
+   }
