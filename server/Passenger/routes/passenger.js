@@ -48,17 +48,19 @@ const router = express.Router();
 
  router.post('/login',function(req,res){
 
+    //assignment of request body into const
   const body= req.body
   const email=body.email
   const password=body.password
   
   try{
+      //finding given email and password in our database with error first function
       Passenger.findOne({email:email,password:password},(err,val)=>{
           if(err){
               console.log(err);
           }else{
               if(val){
-                  res.status(200).json('Success');
+                  res.status(201).json('Success');
               }else{
                   res.status(401).json('Unautherized');
               }
@@ -116,20 +118,14 @@ const router = express.Router();
 */
 
 
-// router.post('/users',function(req,res,next){
-//   Passenger.create(req.body).then(function(psg){
-//       res.send(psg);
-//   }).catch(next);
-  
-  
-// });
 
-
-//add a new user in the database
+//add a new passenger in the database
 router.post('/register', function(req, res, next){
+    //creating new passenger/user with given requested body 
     Passenger.create(req.body).then(function(user){
         res.send(user);
     }).catch(next);
 });
 
-module.exports = router;
+
+module.exports = router;//so that we can access this other files/modules

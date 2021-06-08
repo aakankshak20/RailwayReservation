@@ -47,12 +47,14 @@ const router = express.Router();
  */
 
 router.post('/login',function(req,res){
+     //assignment of request body into const
     const body= req.body
     const email=body.email
     const password=body.password
     
 
     try{
+        //finding given email and password in our database with error first function
         Admin.findOne({email:email,password:password},(err,val)=>{
         if(err){
             console.log(err);
@@ -124,8 +126,11 @@ router.post('/login',function(req,res){
  */
 
 
+//add a new admin in the database
 router.post('/register',function(req,res,next){
    
+
+    //assignment of request body to const
     const newTrainAdmin = new Admin({
         email:req.body.email,
         fname:req.body.fname,
@@ -134,6 +139,7 @@ router.post('/register',function(req,res,next){
        
     });
 
+    //creating and saving new admin with given const
     newTrainAdmin.save(function(err){
         if(err){
             res.send(err.message);
@@ -220,6 +226,7 @@ router.post('/register',function(req,res,next){
 
 router.post('/trainadd',function(req,res){
   
+    //creating new const with our train schema and assign request body
     const train = new Train({
         Train_Name:req.body.Train_Name,
         Train_Number:req.body.Train_Number,
@@ -459,6 +466,7 @@ router.delete('/traindelete/:name',function(req,res){
  *                         example: 200
  */
 
+//we will get all trains details
 router.get('/trains', async function(req,res){
 
     try{
@@ -522,6 +530,7 @@ router.get('/trains', async function(req,res){
 router.get('/train/:id',async function(req,res){
     const id=req.params.id;
     try{
+        //search for the train whose train number is same as given id
         await Train.find({Train_Number:req.params.id},(err,val)=>{
             if(err){
                 console.log(err)
@@ -588,6 +597,7 @@ router.get('/train/:id',async function(req,res){
 router.get('/trainname/:name', async function(req,res){
     const name=req.params.name;
     try{
+        //search for the train whose train name is same as given name
       await Train.find({Train_Name:name},(err,val)=>{
             if(err){
                 res.status(400).json(err)
@@ -653,6 +663,7 @@ router.get('/trainname/:name', async function(req,res){
 router.get('/trainsource/:source',async function(req,res){
     const source=req.params.source;
     try{
+        //search for the train whose train source is same as given source
        await Train.find({Source:source},(err,val)=>{
             if(err){
                 console.log(err)
@@ -719,6 +730,7 @@ router.get('/trainsource/:source',async function(req,res){
 router.get('/traindest/:dest',async function(req,res){
     const destination=req.params.dest;
     try{
+         //search for the train whose train destination is same as given destination
        await Train.find({Destination:destination},(err,val)=>{
             if(err){
                 console.log(err)
@@ -741,6 +753,7 @@ router.get('/trainsd/:src/:dest',async function(req,res){
    
     // res.send(data);
     try{
+        //finding train which ahve given source and destination
        await Train.find({Source:req.params.src,Destination:req.params.dest},(err,val)=>{
             if(err){
                 console.log(err)
@@ -758,4 +771,4 @@ router.get('/trainsd/:src/:dest',async function(req,res){
 });
 
 
-module.exports=router;
+module.exports=router;//so that we can use in other files or modules

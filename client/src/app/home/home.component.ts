@@ -10,6 +10,7 @@ export class HomeComponent implements OnInit {
   constructor(private router:Router){
 
   }
+  //navigations to different pages(components)
    getregister(){
    this.router.navigate(['/register']);
    }

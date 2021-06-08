@@ -7,45 +7,26 @@
                 
                 <div class="form-group">
                     <label for="email">Email</label>
-                    <input 
-                        type="email" 
-                        id="email" 
-                        class="form-control"
-                        ngModel
-                        name="email"
-                        required
-                        email
-                        #email='ngModel'>
-                        <span class="help-block" *ngIf='!email.valid && email.touched'>Please Enter your Email.</span>
-                        
+                    <input  type="email"  id="email"  class="form-control" ngModel
+                        name="email" required email #email='ngModel'>
+                        <span class="help-block" *ngIf='!email.valid && email.touched'>Please Enter your Email.</span>  
                 </div>
   
                 <div class="form-group">
                     <label for="password">Password</label>
-                    <input 
-                        type="password" 
-                        id="password" 
-                        class="form-control"
-                        ngModel
-                        name="password"
-                        required
-                        #password='ngModel'>
+                    <input type="password" id="password" class="form-control" ngModel
+                        name="password" required #password='ngModel'>
                         <span class="help-block" *ngIf='!password.valid && password.touched'>Please Enter your Password.</span>
                 </div>
             </div>
             <br>
             <div class="submit">
-                <button 
-                    id="submit"
-                    class="btn btn-outline-primary" 
-                    type="submit"
+                <button  id="submit"  class="btn btn-outline-primary"  type="submit"
                     [disabled]='!login.valid' >Login</button>
             </div>
             
             <div><h5>New Admin?</h5> 
-              <button type="button" id="newadmin"
-                    class="btn btn-secondary btn-lg"
-                    (click)="register()">
+              <button type="button" id="newadmin"  class="btn btn-secondary btn-lg"  (click)="register()">
                      Register Here</button>
             </div>
         </form>

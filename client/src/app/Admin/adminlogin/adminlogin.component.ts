@@ -22,7 +22,7 @@ export class AdminloginComponent implements OnInit {
           .set('Content-Type', 'application/json');
     
     const body = {
-     
+      //assign our form accepted values to our admin field
       "email":login.value[''].email,
       "password":login.value[''].password
     };

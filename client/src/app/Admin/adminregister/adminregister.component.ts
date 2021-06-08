@@ -21,13 +21,14 @@ export class AdminregisterComponent implements OnInit {
           .set('Authorization', 'my-auth-token')
           .set('Content-Type', 'application/json');
     
+   //assign our form accepted values to our admin field
     const body = {
-      "name":register.value[''].name,
+      "fname":register.value[''].name,
       "email":register.value[''].email,
       "password":register.value[''].password
     };
     
-    //send http request
+     //send http request and passing header and body
     // console.log(register.value['']);
     this.http.post<any>('http://localhost:2000/register', body, {headers:headers})
     .subscribe(res=> {
@@ -36,7 +37,7 @@ export class AdminregisterComponent implements OnInit {
         alert('Register successffully');
         this._router.navigate(['alogin'])
       }else{
-        alert('Please make sure your details')
+        alert('Please make sure your details are correct')
       }
       
     },(err:HttpErrorResponse)=>{

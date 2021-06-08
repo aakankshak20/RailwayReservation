@@ -1,6 +1,7 @@
 const mongoose=require('mongoose');
 const Schema= mongoose.Schema;
 
+//create passenger Schema and model
 const train = new Schema({
     Train_Name:{
         type:String,
@@ -24,6 +25,7 @@ const train = new Schema({
     }
 });
 
+// const        name for collection  passing our schema
 const Train= mongoose.model('train',train);
 
 module.exports = Train;

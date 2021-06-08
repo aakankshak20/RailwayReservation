@@ -16,16 +16,9 @@ export class DeleteTrainComponent implements OnInit {
   }
 
   onSubmit(train: NgForm){
-    // const headers = new HttpHeaders()
-    //       .set('Authorization', 'my-auth-token')
-    //       .set('Content-Type', 'application/json');
-    
+   
     const id=train.value[''].trainname;
-    // const body = {
-     
-    //   "Reservation_Date":reservation.value[''].resdate,
-      
-    // };
+   
 
  const options ={
    headers: new HttpHeaders({
@@ -39,7 +32,7 @@ export class DeleteTrainComponent implements OnInit {
 
  const name=train.value[''].trainname;
     
-    //send http request
+    //send http request for delete
     console.log(train.value['']);
     this.http.delete('http://localhost:2000/traindelete/'+id, options)
     .subscribe(res=> {

@@ -23,20 +23,14 @@ alltrain:any;
     
   
     const name=reservation.value[''].trainname
-    //send http request
+    //send http request for getting train with train name
      console.log(reservation.value['']);
   this.http.get<any>('http://localhost:2000/trainname/'+name,  {headers:headers})
     .subscribe(res=> {
       
       console.log(res[0]._id);
-      this.alltrain= res
-      // alert('');
-      // alert(`Here is Your Train ID
-      //        ID=${res[0]._id}  
-            
-      // `);
-      // alert("Details are"+res[0]);
-     
+      this.alltrain= res;
+    
     });
    
 }

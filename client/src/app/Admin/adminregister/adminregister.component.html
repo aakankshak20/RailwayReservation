@@ -6,62 +6,35 @@
             <div id="register" ngModelGroup #register='ngModelGroup'>
                 <div class="form-group">
                     <label for="name">Name</label>
-                    <input 
-                        type="text" 
-                        id="name" 
-                        class="form-control"
-                        ngModel
-                        name="name"
-                        required
-                        #name='ngModel'>
+                    <input  type="text"  id="name"  class="form-control" ngModel name="name"
+                        required #name='ngModel'>
                         <span class="help-block" *ngIf='!name.valid && name.touched'>Please enter your name.</span>
                 </div>  
                 <div class="form-group">
                     <label for="email">Email</label>
-                    <input 
-                        type="email" 
-                        id="email" 
-                        class="form-control"
-                        ngModel
-                        name="email"
-                        required
-                        email
-                        #email='ngModel'>
-                        <span class="help-block" *ngIf='!email.valid && email.touched'>Please enter your email.</span>
+                    <input type="email" id="email" class="form-control" ngModel
+                        name="email" required email #email='ngModel'>
+                    <span class="help-block" *ngIf='!email.valid && email.touched'>Please enter your email.</span>
                         
                 </div>
   
                 <div class="form-group">
                     <label for="password">Password</label>
-                    <input 
-                        type="password" 
-                        id="password" 
-                        class="form-control"
-                        ngModel
-                        name="password"
-                        required
-                        #password='ngModel'>
-                        <span class="help-block" *ngIf='!password.valid && password.touched'>Please enter your password.</span>
+                    <input  type="password" id="password"  class="form-control" ngModel name="password"
+                        required #password='ngModel'>
+                    <span class="help-block" *ngIf='!password.valid && password.touched'>Please enter your password.</span>
                 </div>
   
                 <div class="form-group">
                     <label for="conpassword">Confirm Password</label>
-                    <input 
-                        type="password" 
-                        id="conpassword" 
-                        class="form-control"
-                        ngModel
-                        name="conpassword"
-                        required
-                        #conpassword='ngModel'>
-                        <span class="help-block" *ngIf='!conpassword.valid && conpassword.touched'>Please confirm your password.</span>
+                    <input  type="password" id="conpassword"  class="form-control" ngModel
+                        name="conpassword" required #conpassword='ngModel'>
+                     <span class="help-block" *ngIf='!conpassword.valid && conpassword.touched'>Please confirm your password.</span>
                 </div>
             </div>
             <br>
             <div class="submit">
-                <button 
-                    class="btn btn-outline-secondary btn-lg btn-block" 
-                    type="submit"
+                <button class="btn btn-outline-secondary btn-lg btn-block" type="submit"
                     [disabled]='!register.valid' >Submit</button>
             </div>
         </form>

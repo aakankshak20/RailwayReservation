@@ -1,6 +1,7 @@
 const mongoose=require('mongoose');
 const Schema= mongoose.Schema;
 
+//create passenger Schema and model
 const reservation = new Schema({
    Reservation_Date:{
         type:Date,
@@ -41,6 +42,7 @@ const reservation = new Schema({
 
 });
 
+// const                    name for collection  passing our schema
 const Reservation = mongoose.model('reservation',reservation);
 
 module.exports = Reservation;

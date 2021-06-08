@@ -22,7 +22,7 @@ export class UpdateTrainComponent implements OnInit {
           
     const body = {
      
-     
+     //assign form values to our train fields
       "Source":train.value[''].source,
       "Destination":train.value[''].destination,
       "Train_Name":train.value[''].trainname,
@@ -34,14 +34,13 @@ export class UpdateTrainComponent implements OnInit {
     
      
     const id=train.value[''].trainnumber;
-    //send http request
+    //send http request for updating train details 
     console.log(train.value['']);
     this.http.put<any>('http://localhost:2000/trainupdate/'+id, body, {headers:headers})
     .subscribe(res=> {
       
       console.log(res);
-      // alert('');
-     
+
        alert(` Train Successfully Updated`);
        this._router.navigate(['trainchanges']);
       // alert("Details are"+res[0]);

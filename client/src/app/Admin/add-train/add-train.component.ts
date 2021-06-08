@@ -22,8 +22,8 @@ export class AddTrainComponent implements OnInit {
     
     const body = {
      
-     
-       "Source":train.value[''].source,
+     //assign our form accepted values to our fields of trains 
+      "Source":train.value[''].source,
       "Destination":train.value[''].destination,
       "Train_Name":train.value[''].trainname,
       "Train_Number":train.value[''].trainnumber,
@@ -32,15 +32,17 @@ export class AddTrainComponent implements OnInit {
       // "Train_Number":reservation.value[''].trainnumber
     };
     
-    //send http request
+    //send http request and passing header and body
     console.log(train.value['']);
     this.http.post<any>('http://localhost:2000/trainadd', body, {headers:headers})
     .subscribe(res=> {
       
       console.log(res);
-      // alert('');
+     
       alert(`New Train Successfully Added`);
       // alert("Details are"+res[0]);
+      
+      //after successfull operation navigate to next page
       this._router.navigate(['trainchanges']);
     });
   }

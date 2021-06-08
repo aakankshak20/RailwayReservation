@@ -7,22 +7,14 @@
             <div id="train" ngModelGroup #train='ngModelGroup'>
                 <div class="form-group">
                     <label for="trainname">Train Name</label>
-                    <input 
-                        type="text" 
-                        id="trainname" 
-                        class="form-control"
-                        ngModel
-                        name="trainname"
-                        required
-                        #trainname='ngModel'>
-                        <span class="help-block" *ngIf='!trainname.valid && trainname.touched'>Please Enter train name.</span>
+                    <input  type="text"  id="trainname"  class="form-control" ngModel
+                        name="trainname" required #trainname='ngModel'>
+                    <span class="help-block" *ngIf='!trainname.valid && trainname.touched'>Please Enter train name.</span>
                 </div>
             </div>
             <br>
             <div class="submit">
-                <button 
-                    class="btn btn-outline-secondary btn-lg btn-block" 
-                    type="submit"
+                <button  class="btn btn-outline-secondary btn-lg btn-block" type="submit"
                     [disabled]='!train.valid' >Submit</button>
             </div>
         </form>

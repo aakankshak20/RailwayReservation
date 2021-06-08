@@ -17,5 +17,6 @@ const passengerSchema = new Schema({
     }
 });
 
+// const                    name for collection  passing our schema
 const Passenger = mongoose.model('passenger', passengerSchema);
 module.exports = Passenger;

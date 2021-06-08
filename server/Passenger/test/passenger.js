@@ -9,6 +9,7 @@ const body={
     password:'john123'
 }
 
+//describing our test case
 describe("Post Passenger",() =>{
     it('Test case for New Passenger',(done) =>{
         request(app)
