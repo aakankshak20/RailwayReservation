@@ -5,7 +5,7 @@ const app="http://localhost:3000/";
 
 const body={
     name:'john',
-    email:'john@gmail.com',
+    email:'jonh@gmail.com',
     password:'john123'
 }
 
@@ -15,6 +15,6 @@ describe("Post Passenger",() =>{
         request(app)
         .post('register')
     .send(body)
-     .expect(200,done);
+     .expect(201,done);
     });
 });

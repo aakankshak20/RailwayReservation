@@ -123,7 +123,7 @@ const router = express.Router();
 router.post('/register', function(req, res, next){
     //creating new passenger/user with given requested body 
     Passenger.create(req.body).then(function(user){
-        res.send(user);
+        res.status(201).send(user);
     }).catch(next);
 });
 

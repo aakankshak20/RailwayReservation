@@ -18,7 +18,7 @@ export class ReservationdetailsComponent implements OnInit {
     this.route.paramMap.subscribe(params =>{
       this.reservationID=params.get('id');
     });
-    this.reservationID=this.route.snapshot.paramMap.get('id')
+    
   }
 
   more(){
