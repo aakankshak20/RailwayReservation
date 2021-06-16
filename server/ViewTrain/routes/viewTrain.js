@@ -186,7 +186,7 @@ router.get('/trains/:id', async function(req,res){
     try{
     //making get request to train micro service and accesing trains details with given id
   await axios.get("http://localhost:2000/train/" +id).then((response)=>{
-    //console.log(response.data[0]);
+    console.log(response.data[0]);
       res.status(200).json(response.data[0]);
   }) 
     }catch(err){

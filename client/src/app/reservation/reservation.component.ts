@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Reservation } from '../reservation';
-import { HttpClient,HttpHeaders } from '@angular/common/http';
+import { HttpClient,HttpHeaders,HttpErrorResponse } from '@angular/common/http';
 import { Router,NavigationExtras } from '@angular/router';
 import { NgForm } from '@angular/forms';
 
@@ -54,6 +54,8 @@ export class ReservationComponent implements OnInit {
       `);
       // alert("Details are"+res[0]);
      this.getid(this.id);
+    },(err:HttpErrorResponse)=>{
+      alert('Make Sure You Enter Correct Train Name...Please Visit our Train Details tab')
     });
     console.log(this.id);
     

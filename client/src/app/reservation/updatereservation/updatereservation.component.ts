@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient,HttpHeaders } from '@angular/common/http';
+import { HttpClient,HttpHeaders,HttpErrorResponse } from '@angular/common/http';
 import { Router,NavigationExtras } from '@angular/router';
 import { NgForm } from '@angular/forms';
 @Component({
@@ -22,12 +22,9 @@ export class UpdatereservationComponent implements OnInit {
     const body = {
      
       "Reservation_Date":reservation.value[''].resdate,
-      //  "Source":reservation.value[''].source,
-      //  "Destination":reservation.value[''].destination,
-      // "Train_Name":reservation.value[''].trainname,
       "Passenger":reservation.value[''].passenger,
       "Class":reservation.value[''].class
-      // "Train_Number":reservation.value[''].trainnumber
+    
     };
     
     //send http request
@@ -46,6 +43,12 @@ export class UpdatereservationComponent implements OnInit {
       // alert("Details are"+res[0]);
       // this._router.navigate(['details'],)
       this.getid(this.id);
+    },(error:HttpErrorResponse)=>{
+      if(error.status===404){
+        alert('Please Make Sure You Enter Right Reservation ID')
+      }else if(error.status===500){
+        alert('This Reservation Id not exists');
+      }
     });
     
   }

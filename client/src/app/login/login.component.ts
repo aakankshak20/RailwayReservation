@@ -12,7 +12,7 @@ export class LoginComponent implements OnInit {
 
   // passengerModel = new Passenger('', 0,'','','','');
   
-  loginUserD:any={};
+  // loginUserD:any={};
   constructor( private http: HttpClient , private _router:Router) { }
 
   ngOnInit() {

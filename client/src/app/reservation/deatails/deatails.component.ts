@@ -32,6 +32,10 @@ export class DeatailsComponent implements OnInit {
     this.router.navigate(['reservation'])
   }
 
+  view(){
+    this.router.navigate(['viewres'])
+  }
+
   ngOnInit(): void {
   }
   

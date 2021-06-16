@@ -32,12 +32,12 @@ export class RegisterComponent implements OnInit {
     // console.log(register.value['']);
     this.http.post<any>('http://localhost:3000/register', body, {headers:headers})
     .subscribe(res=> {
-      // console.log(res);
+       console.log(res);
       if(res._id!==''){
         alert('Register successffully');
         this._router.navigate(['login'])
       }else{
-        alert('Please make sure your details')
+        alert('Please make sure you Enter correct details')
       }
       
     },(err:HttpErrorResponse)=>{

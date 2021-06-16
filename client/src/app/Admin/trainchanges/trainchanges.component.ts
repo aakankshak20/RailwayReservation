@@ -31,8 +31,6 @@ export class TrainchangesComponent implements OnInit {
     this.router.navigate(['SearchTrains'])
   }
 
-  
-  
   logout() {
     
     this.router.navigate([ '/login' ]);

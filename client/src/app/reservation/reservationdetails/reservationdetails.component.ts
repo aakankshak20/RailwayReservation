@@ -26,6 +26,7 @@ export class ReservationdetailsComponent implements OnInit {
       console.log(result);
       this.lreservation=result;
     })
+    console.log('Working');
   }
 
   payment(){

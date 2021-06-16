@@ -15,16 +15,9 @@ export class CancelreservationComponent implements OnInit {
   ngOnInit(): void {
   }
   onSubmit(reservation: NgForm){
-    // const headers = new HttpHeaders()
-    //       .set('Authorization', 'my-auth-token')
-    //       .set('Content-Type', 'application/json');
     
     const id=reservation.value[''].id;
-    // const body = {
-     
-    //   "Reservation_Date":reservation.value[''].resdate,
-      
-    // };
+    
 
  const options ={
    headers: new HttpHeaders({
@@ -32,7 +25,7 @@ export class CancelreservationComponent implements OnInit {
      'Content-Type':'application/json'
    }),
    body:{
-     "Reservation_Date":reservation.value[''].id
+     "_id":reservation.value[''].id
    }
  }
 
@@ -42,7 +35,7 @@ export class CancelreservationComponent implements OnInit {
     this.http.delete('http://localhost:4000/reservations/'+id, options)
     .subscribe(res=> {
       
-      console.log(res);
+      //console.log(res);
       // alert('');
       alert(`Your reservation has been deleted
       `);

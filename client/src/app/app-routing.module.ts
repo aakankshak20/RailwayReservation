@@ -21,6 +21,7 @@ import { UpdateTrainComponent } from './Admin/update-train/update-train.componen
 import { AddTrainComponent } from './Admin/add-train/add-train.component';
 import { ReservationdetailsComponent } from './reservation/reservationdetails/reservationdetails.component';
 import { PaymentComponent } from './payment/payment.component';
+import { ViewresComponent } from './reservation/viewres/viewres.component';
 
 const routes: Routes = [
   {path:'',redirectTo:'/home',pathMatch:'full'},
@@ -43,6 +44,7 @@ const routes: Routes = [
   {path:'UpdateTrain',component:UpdateTrainComponent},
   {path:'AddTrain',component:AddTrainComponent},
   {path:'payment',component:PaymentComponent},
+  {path:'viewres',component:ViewresComponent},
   {path:"**", component:PagenotfoundComponent}
   
 
@@ -59,5 +61,5 @@ export const routingComponents=[
                 CancelreservationComponent,UpdatereservationComponent,SourceDestReserComponent,
                 AdminregisterComponent,AdminloginComponent,TrainchangesComponent,AddTrainComponent,
                 DeleteTrainComponent,UpdateTrainComponent,TrainsearchComponent,ReservationdetailsComponent,
-                PaymentComponent
+                PaymentComponent,ViewresComponent
 ]

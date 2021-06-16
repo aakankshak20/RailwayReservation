@@ -9,7 +9,7 @@ export class SearchreservationService {
   
   constructor(private http:HttpClient) { }
   getReservation(id:any){
-    return this.http.get('http://localhost:4000/reservations/'+id);
+    return this.http.get('http://localhost:4000/reservation/'+id);
    }
 }
 

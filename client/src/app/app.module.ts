@@ -34,6 +34,7 @@ import { TrainsearchComponent } from './Admin/trainsearch/trainsearch.component'
 import { FooterComponent } from './footer/footer.component';
 import { ReservationdetailsComponent } from './reservation/reservationdetails/reservationdetails.component';
 import { PaymentComponent } from './payment/payment.component';
+import { ViewresComponent } from './reservation/viewres/viewres.component';
 
 
 @NgModule({
@@ -61,6 +62,7 @@ import { PaymentComponent } from './payment/payment.component';
     FooterComponent,
     ReservationdetailsComponent,
     PaymentComponent,
+    ViewresComponent,
     
     //  ReservComponent,
     

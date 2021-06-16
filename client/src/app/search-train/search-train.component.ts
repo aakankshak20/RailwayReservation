@@ -23,8 +23,6 @@ export class SearchTrainComponent implements OnInit {
    
   }
 
- 
-
   makereserervation(){
   this.router.navigate(['login']);
   }

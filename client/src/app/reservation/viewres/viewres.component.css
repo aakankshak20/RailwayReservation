@@ -1,0 +1,36 @@
+body{
+    background-image: linear-gradient(to right, rgb(177, 185, 57) , rgb(136, 136, 201));
+}
+input.ng-invalid.ng-touched, select.ng-invalid {
+    border: 2px solid #ff6969;
+}
+
+.help-block {
+    color: #ff6969;
+}
+
+.card{
+    align-items: center;
+    left:400px;
+    border-radius: 40px;
+}
+
+.bg-primary {
+    background-color: rgba(0, 0, 0, 0.801)!important;
+}
+.card-header{
+    color:black;
+    background-color: white;
+    border-radius: 32px;
+}
+/* html { background-color: black; } */
+.submit{
+padding-left: 50px;
+}
+
+
+* {
+    box-sizing: border-box;
+  }
+  
+

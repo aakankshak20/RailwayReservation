@@ -1,7 +1,7 @@
 const express= require('express');
 const Reservation = require('../model/reservation.model');
 
-//hnadling of our http request
+//handling of our http request
 const axios = require('axios');
 
 const router = express.Router();
@@ -108,6 +108,9 @@ router.post('/reservation',async function(req,res){
    //saving const to our database
    await reservation.save();
 
+   try{
+
+   
    //finding saved reservation in our database with _id
    await Reservation.findById({_id:reservation._id}).then((reser)=>{
 
@@ -118,7 +121,7 @@ router.post('/reservation',async function(req,res){
             //check wheather given train name is present in our train databse and access all details of train
         axios.get("http://localhost:2000/trainname/"+ reser.Train_Name)
             .then((response)=>{
-                // console.log(response.data)
+                //console.log(response.data)
                 //assignment of response data to other const
                  reserfinal={
                     id: reser._id,
@@ -127,7 +130,7 @@ router.post('/reservation',async function(req,res){
                     Destination: response.data[0].Destination,
 
                 };
-                
+                //console.log(reserfinal);
                 //updating fare value and other parameter
                 Reservation.findOneAndUpdate({_id:reser._id},reserfinal).then(function(){
                     Reservation.findOne({_id:reser._id}).then(function(reservation){
@@ -138,11 +141,18 @@ router.post('/reservation',async function(req,res){
                     });
                 })
                 
+            }).catch((error)=>{
+                console.log('Please check Train Name under Train Details');
+                res.status(500).send('error');
             });
         }else{
+           
             res.send("check train schedule");
         }
     })
+}catch(err){
+    res.status(500).send('Error');
+}
 });
 
 //for by source-destination reservation
@@ -243,7 +253,8 @@ router.post('/reservationsd', async function(req,res){
 
   //saving const to our database
    await reservation.save();
-
+try{
+    
    //finding saved reservation in our database with _id
    await Reservation.findById({_id:reservation._id}).then((reser)=>{
     //console.log(reser)
@@ -257,12 +268,11 @@ router.post('/reservationsd', async function(req,res){
                  reserfinal={
                     id: reser._id,
                     Fare: response.data[0].Fair*reservation.Passenger,
-                    Passenger: response.data[0].Passenger,
                     Source: response.data[0].Source,
                     Destination: response.data[0].Destination,
 
                 };
-
+                console.log(reserfinal);
                 //updating fare value and other parameter
                 Reservation.findOneAndUpdate({_id:reser._id},reserfinal).then(function(){
                     Reservation.findOne({_id:reser._id}).then(function(reservation){
@@ -275,11 +285,17 @@ router.post('/reservationsd', async function(req,res){
                     });
                 })
                 
+            }).catch((error)=>{
+                console.log('Please check Source and Destination under serach train tab');
+                res.status(500).send('error');
             });
         }else{
             res.send("check train schedule");
         }
     })
+}catch(err){
+    res.status(500).json(err);
+}
 });
 
 // })
@@ -354,7 +370,7 @@ router.get('/reservations',  async function (req, res) {
 //for getting specific id
 /**
  * @swagger
- * /reservations/{id}:
+ * /reservation/{id}:
  *   get:
  *     summary: Retrieve a single reservation with the help of reservation id.
  *     description: Retrieve a single reservation with the help of reservation id.Can be used for cancel reservations.
@@ -406,10 +422,10 @@ router.get('/reservations',  async function (req, res) {
  *                         example: true
 */
 
-router.get('/reservations/:id',function(req,res){
+router.get('/reservation/:id',function(req,res){
     const id= req.params.id;
     try{
-        //finding the reservation with the help of unique
+        //finding the reservation with the help of unique id
         Reservation.findById({_id:id},(err,val)=>{
             if(err){
                 console.log(err)
@@ -621,7 +637,7 @@ router.put('/reservation/:id',function(req,res,next){
                         Fare: response.data[0].Fair*reser.Passenger,
                        
                     };
-                    
+                    //updating fare with actual reservation fare
                 Reservation.findOneAndUpdate({_id:req.params.id},reserfinal).then(function(){
                     Reservation.findOne({_id:reser._id}).then(function(reservation){
                    
@@ -632,11 +648,15 @@ router.put('/reservation/:id',function(req,res,next){
                     });
                 })
                 
+            }).catch((error)=>{
+                res.status(500).send('This Reservation Id is not registerd with database');
             });
         }else{
             res.send("check train schedule");
         }
         });
+    }).catch((error)=>{
+        res.status(404).send('Not Found');
     });
 });
 

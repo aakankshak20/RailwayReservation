@@ -25,6 +25,7 @@ const swaggerUi=require('swagger-ui-express');
 //generates openapi definitions from jsdoc comments
 const swaggerJSDoc = require('swagger-jsdoc');
 
+//defines root information for API
 const swaggerDefinition={
     openapi:'3.0.0',
     info:{
@@ -33,12 +34,13 @@ const swaggerDefinition={
     },
 };
 
+
 const options={
     swaggerDefinition,
     apis:['./routes/*.js'],
 };
 
-//used by swagger-jsondoc to produce an openapi specification variable
+//used by swagger-jsondoc to produce an openapi specification variable(swaggerSpec)
 const swaggerSpec = swaggerJSDoc(options);
 app.use('/docs',swaggerUi.serve,swaggerUi.setup(swaggerSpec));
 

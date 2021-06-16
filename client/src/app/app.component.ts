@@ -10,12 +10,9 @@ import { MatButtonModule } from '@angular/material/button';
 export class AppComponent {
   title = 'client';
   constructor( private router: Router) {}
-//   // passengerModel = new Passenger(' ', 0 ,' ',' ',' ',' ');
-//   getProtectedData() {
-//     this.user.getProtectedData().subscribe((data: any) => console.log(data));
-// }
+
 ngOnInit() {
-    // this.getProtectedData();
+    
 }
 
 }

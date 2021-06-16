@@ -6,8 +6,7 @@ const mongoose = require('mongoose');
 const cors=require('cors')
 
 //connection string
-mongoose.connect('mongodb+srv://aakanksha:aakanksha1@cluster0.80ol3.mongodb.net/Train',{useNewUrlParser:true ,
-useUnifiedTopology: true,useFindAndModify: false  } );
+mongoose.connect('mongodb+srv://aakanksha:aakanksha1@cluster0.80ol3.mongodb.net/Train',{useNewUrlParser:true ,useFindAndModify:true,useUnifiedTopology: true } );
 mongoose.Promise = global.Promise;
  
 //importing our file

@@ -24,6 +24,7 @@ export class AdminregisterComponent implements OnInit {
    //assign our form accepted values to our admin field
     const body = {
       "fname":register.value[''].name,
+      "lname":register.value[''].lname,
       "email":register.value[''].email,
       "password":register.value[''].password
     };

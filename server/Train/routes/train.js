@@ -403,7 +403,7 @@ router.put('/trainupdate/:id',function(req,res){
 router.delete('/traindelete/:name',function(req,res){
     const name=req.params.name;
     try{
-        //find train with the help of  and remove from database
+        //find train with the help of name and remove from database
         Train.findOneAndDelete({Train_Name:name},(err,val)=>{
             if(err){
                 console.log(err)

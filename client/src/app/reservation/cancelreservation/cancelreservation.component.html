@@ -6,109 +6,21 @@
         
         <form #reservation='ngForm' (ngSubmit)='onSubmit(reservation)'>
             <div id="reservation" ngModelGroup #reservation='ngModelGroup'>
-                <!-- <div class="form-group">
-                    <label for="trainname">Train Name</label>
-                    <input 
-                        type="trainname" 
-                        id="trainname" 
-                        class="form-control"
-                        ngModel
-                        name="trainname"
-                        required
-                        #trainname='ngModel'>
-                        <span class="help-block" *ngIf='!trainname.valid && trainname.touched'>Please Enter train name.</span>
-                </div> -->
-
                 <div class="form-group">
                     <label for="id">Reservation Number</label>
-                    <input 
-                        type="alphanumeric" 
-                        id="id" 
-                        class="form-control"
-                        ngModel
-                        name="id"
-                        required
-                        #id='ngModel'>
+                    <input  type="alphanumeric" id="id" class="form-control" ngModel
+                        name="id" required #id='ngModel'>
                         <span class="help-block" *ngIf='!id.valid && id.touched'>Please Enter Train Number.</span>
                 </div>
-  
-                <!-- <div class="form-group">
-                    <label for="source">Source</label>
-                    <input 
-                        type="text" 
-                        id="source" 
-                        class="form-control"
-                        ngModel
-                        name="source"
-                        required
-                        #source='ngModel'>
-                        <span class="help-block" *ngIf='!source.valid && source.touched'>Please enter Sourec</span>
-                </div> -->
-  
-                <!-- <div class="form-group">
-                    <label for="destination">Destinantion</label>
-                    <input 
-                        type="text" 
-                        id="destination" 
-                        class="form-control"
-                        ngModel
-                        name="destination"
-                        required
-                        #destination='ngModel'>
-                        <span class="help-block" *ngIf='!destination.valid && destination.touched'>Please enter your Destination.</span>
-                        
-                </div> -->
-  
-                <!-- <div class="form-group">
-                    <label for="passenger">Number of Passenger</label>
-                    <input 
-                        type="number" 
-                        id="passenger" 
-                        class="form-control"
-                        ngModel
-                        name="passenger"
-                        required
-                        #passenger='ngModel'>
-                        <span class="help-block" *ngIf='!passenger.valid && passenger.touched'>Please enter No of passengers.</span>
-                </div> -->
-  
-                <!-- <div class="form-group">
-                    <label for="class">Class</label>
-                    <input 
-                        type="text" 
-                        id="class" 
-                        class="form-control"
-                        ngModel
-                        name="class"
-                        required
-                        #class='ngModel'>
-                        <span class="help-block" *ngIf='!class.valid && class.touched'>Please enter class you want to travel</span>
-                </div> -->
-
-                <!-- <div class="form-group">
-                    <label for="resdate">Date of Reservation</label>
-                    <input 
-                        type="date" 
-                        id="resdate" 
-                        class="form-control"
-                        ngModel
-                        name="resdate"
-                        required
-                        #resdate='ngModel'>
-                        <span class="help-block" *ngIf='!resdate.valid && resdate.touched'>Please enter Reservation Date</span>
-                </div> -->
-  
             </div>
+
             <br>
+
             <div class="submit">
-                <button 
-                    class="btn btn-outline-secondary btn-lg btn-block" 
-                    type="submit">
-                    Submit</button>
+                <button class="btn btn-outline-secondary btn-lg btn-block" type="submit"> Submit</button>
             </div>
         </form>
     </div>
   </div>
   
-
 </body>

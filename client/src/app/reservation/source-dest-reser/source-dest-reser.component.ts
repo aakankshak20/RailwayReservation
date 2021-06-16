@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient,HttpHeaders } from '@angular/common/http';
+import { HttpClient,HttpHeaders,HttpErrorResponse } from '@angular/common/http';
 import { Router,NavigationExtras } from '@angular/router';
 import { NgForm } from '@angular/forms';
 
@@ -49,6 +49,8 @@ public id:any;
      
       this.getid(this.id);
      
+    },(err:HttpErrorResponse)=>{
+      alert('Please Check Out Our Train Details')
     });
   }
 

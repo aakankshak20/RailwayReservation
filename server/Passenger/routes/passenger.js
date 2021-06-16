@@ -128,4 +128,4 @@ router.post('/register', function(req, res, next){
 });
 
 
-module.exports = router;//so that we can access this other files/modules
+module.exports = router;//so that we can access this in other files/modules

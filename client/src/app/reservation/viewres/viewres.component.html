@@ -1,0 +1,47 @@
+<body>
+    
+    <div class="card text-white bg-primary mb-3" style="max-width: 20rem; top: 20px;" id="leftpane">
+        <div class="card-header">Please Enter Reservation Details</div>
+        <div class="card-body">
+            
+            <form #reservation='ngForm' (ngSubmit)='onSubmit(reservation)'>
+                <div id="reservation" ngModelGroup #reservation='ngModelGroup'>
+                    <div class="form-group">
+                        <label for="id">Reservation Number</label>
+                        <input  type="alphanumeric" id="id" class="form-control" ngModel
+                            name="id" required #id='ngModel'>
+                            <span class="help-block" *ngIf='!id.valid && id.touched'>Please Enter Train Number.</span>
+                    </div>
+                </div>
+    
+                <br>
+    
+                <div class="submit">
+                    <button class="btn btn-outline-secondary btn-lg btn-block" type="submit"> Submit</button>
+                </div>
+            </form>
+        </div>
+      </div>
+      
+      <div class="card-body" id="tabledetail">
+        <!-- <h2>Please make sure You are Log in our system in order to make reservation</h2> -->
+       <table class="table table-hover">
+           <thead>
+               <tr>
+                   <th>Details</th>
+                   <th></th>
+                  <th>
+                      <button mat-flat-button color="warn" (click)="gonext()">Back</button>
+                  </th>
+               </tr>
+           </thead>
+           <tbody>
+               <tr *ngFor='let reservation of lreservation | keyvalue'>
+                   <td>{{reservation.key}}</td>
+                   <td>{{reservation.value}}</td>
+                </tr>
+           </tbody>
+       </table>
+    </div> 
+    
+    </body>
