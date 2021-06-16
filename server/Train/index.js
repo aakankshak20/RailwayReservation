@@ -61,6 +61,6 @@ app.all("/*", function(req, res, next){
     
 //listen for requests
 app.listen(process.env.port||2000,function(){
-    console.log('Train service running');
+    console.log('Train service running on 2000');
 
 });
