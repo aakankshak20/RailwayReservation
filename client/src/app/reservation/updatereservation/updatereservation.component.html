@@ -31,7 +31,7 @@
                 <div class="form-group">
                     <label for="resdate">Date of Reservation</label>
                     <input type="date" id="resdate" class="form-control" ngModel
-                        name="resdate" required #resdate='ngModel'>
+                        name="resdate" required #resdate='ngModel' min="2021-06-15">
                          <span class="help-block" *ngIf='!resdate.valid && resdate.touched'>Please enter Reservation Date</span>
                 </div>
             </div>

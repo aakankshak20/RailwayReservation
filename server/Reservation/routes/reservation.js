@@ -511,7 +511,7 @@ router.delete('/reservations/:id',function(req,res){
  try{
      
     //finding and deleting reservation with help of id
-     Reservation.findOneAndDelete(id,(err,val)=>{
+     Reservation.findByIdAndDelete(id,(err,val)=>{
          if(err){
              console.log(err)
              res.status(400).send('Unable to proceed please check Reservation id')
@@ -622,7 +622,7 @@ router.put('/reservation/:id',function(req,res,next){
    
     //finding and updating reservation
     Reservation.findOneAndUpdate({_id:req.params.id},req.body).then(function(){
-        console.log(req.body);
+        // console.log(req.body);
         
         //for updating Fare 
         Reservation.findOne({_id:req.params.id}).then(function(reser){

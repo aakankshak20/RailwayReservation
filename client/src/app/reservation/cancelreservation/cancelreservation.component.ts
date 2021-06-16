@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient,HttpHeaders } from '@angular/common/http';
+import { HttpClient,HttpHeaders,HttpErrorResponse } from '@angular/common/http';
 import { Router,NavigationExtras } from '@angular/router';
 import { NgForm } from '@angular/forms';
 
@@ -41,6 +41,8 @@ export class CancelreservationComponent implements OnInit {
       `);
       // alert("Details are"+res[0]);
       this._router.navigate(['details'],{})
+    },(error:HttpErrorResponse)=>{
+ alert('Make Sure You enter right reservation ID or this Reservation Id is already deleted');
     });
   }
 

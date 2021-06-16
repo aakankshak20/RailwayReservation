@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient,HttpHeaders } from '@angular/common/http';
+import { HttpClient,HttpHeaders,HttpErrorResponse } from '@angular/common/http';
 import { Router,NavigationExtras } from '@angular/router';
 import { NgForm } from '@angular/forms';
 
@@ -42,6 +42,8 @@ export class DeleteTrainComponent implements OnInit {
       alert(`Train ${name} Successfully deleted`);
       // alert("Details are"+res[0]);
       this._router.navigate(['trainchanges'])
+    },(error:HttpErrorResponse)=>{
+      alert('Train Already Deleted From Database');
     });
   }
 
