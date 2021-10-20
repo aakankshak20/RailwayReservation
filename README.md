@@ -1,4 +1,4 @@
-                                                             ** Online Railway Reservation System**
+                ** Online Railway Reservation System**
 
 This System is designed for online reservation of railway tickets for travelling between any two locations. In this passenger can login/register for making reservations. After making reservation passenger can view reservations as well as he/she can cancel reservation as per his/her convenience. Without login to website passenger can search for trains by entering source and destinations.
 In this system another user of this system is admin. Admin will update all the train details including their source, destinations and fair details, in order to have updated information to end users or passenger.
